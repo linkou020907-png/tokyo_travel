@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#f48fb1">
+<title>🌸 도쿄 여행 도우미</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#e91e8c;--pink2:#f48fb1;--pink3:#fce4ec;--pink4:#fff5f9;
+  --bg:#fff8fb;--sur:#ffffff;--bor:rgba(233,30,140,0.12);--bor2:rgba(233,30,140,0.25);
+  --txt:#2d1b2e;--sub:#7b5c7e;--hint:#b89ab9;
+  --r:16px;--rs:10px;
+  --sh:0 2px 12px rgba(233,30,140,0.08);--sh2:0 4px 20px rgba(233,30,140,0.14);
+}
+html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--txt);-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+.app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--bg)}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#e91e8c 0%,#f06292 55%,#f48fb1 100%);padding:48px 20px 20px;position:relative;overflow:hidden}
+.hb1{position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.09);right:-35px;top:-35px;pointer-events:none}
+.hb2{position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.07);left:15px;bottom:-25px;pointer-events:none}
+.header h1{color:#fff;font-size:21px;font-weight:700;position:relative}
+.header p{color:rgba(255,255,255,.72);font-size:11px;margin-top:3px;position:relative}
+.hclock{position:absolute;top:13px;right:16px;color:rgba(255,255,255,.92);font-size:12.5px;font-weight:700;letter-spacing:.4px}
+
+/* TABS */
+.tab-bar{display:flex;background:var(--sur);border-bottom:1.5px solid var(--bor);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(233,30,140,.07);overflow-x:auto;scrollbar-width:none}
+.tab-bar::-webkit-scrollbar{display:none}
+.tab-btn{flex-shrink:0;padding:11px 9px 9px;border:none;background:transparent;cursor:pointer;font-size:9px;font-family:'Noto Sans KR',sans-serif;color:var(--hint);display:flex;flex-direction:column;align-items:center;gap:3px;border-bottom:2.5px solid transparent;white-space:nowrap;min-width:54px;transition:color .2s}
+.tab-btn svg{width:19px;height:19px}
+.tab-btn.active{color:var(--pink);border-bottom-color:var(--pink)}
+
+/* SECTIONS */
+.section{display:none;padding:14px}
+.section.active{display:block}
+
+/* CARD */
+.card{background:var(--sur);border-radius:var(--r);padding:15px;margin-bottom:12px;box-shadow:var(--sh);border:1px solid var(--bor)}
+.sec-label{font-size:10px;font-weight:700;color:var(--hint);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:9px}
+
+/* BTNS */
+.big-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border:none;border-radius:var(--r);font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;box-shadow:0 4px 15px rgba(233,30,140,.28);transition:transform .15s}
+.big-btn:active{transform:scale(.98)}
+.big-btn:disabled{opacity:.55}
+
+/* INPUTS */
+textarea,select{width:100%;border:1.5px solid var(--bor);border-radius:var(--rs);padding:11px 13px;font-size:15px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);resize:none;outline:none;transition:border-color .2s;-webkit-appearance:none}
+textarea:focus,select:focus{border-color:var(--pink);background:#fff}
+input[type=number],input[type=text]{border:1.5px solid var(--bor);border-radius:var(--rs);padding:11px 13px;font-size:15px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;transition:border-color .2s;-webkit-appearance:none}
+input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);background:#fff}
+
+/* RESULT */
+.result-card{background:linear-gradient(135deg,#fff0f6,#fff);border-radius:var(--r);padding:16px;margin-bottom:12px;display:none;box-shadow:var(--sh2);border:1.5px solid var(--pink2)}
+.result-card.show{display:block}
+.jp-text{font-family:'Noto Sans JP',sans-serif;font-size:26px;font-weight:500;color:var(--txt);margin-bottom:4px;line-height:1.5}
+.rom-row{font-size:13px;color:var(--pink);font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:5px}
+.kr-pron{font-size:12px;color:var(--sub);margin-bottom:7px}
+.natural-text{font-size:13px;color:var(--sub);line-height:1.6;padding-top:9px;border-top:1px solid var(--bor);margin-top:7px}
+.action-row{display:flex;gap:8px;margin-top:11px}
+.action-btn{flex:1;padding:9px;border:1.5px solid var(--bor);border-radius:var(--rs);background:#fff;color:var(--txt);font-size:12px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
+.action-btn:active{background:var(--pink3)}
+
+/* CAMERA */
+.cam-upload{border:2px dashed var(--pink2);border-radius:var(--r);padding:28px 20px;text-align:center;cursor:pointer;margin-bottom:12px;background:var(--pink4)}
+#camInput{display:none}
+#camPreview{width:100%;border-radius:var(--rs);margin-bottom:10px;display:none}
+#camPreview.show{display:block}
+
+/* PHRASES */
+.cat-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:9px;margin-bottom:12px;scrollbar-width:none}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-tab{flex-shrink:0;padding:7px 14px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s}
+.cat-tab.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink);box-shadow:0 3px 10px rgba(233,30,140,.25)}
+.phrase-list{display:flex;flex-direction:column;gap:8px}
+.phrase-item{background:var(--sur);border-radius:var(--r);padding:13px 15px;box-shadow:var(--sh);cursor:pointer;border:1.5px solid var(--bor);transition:border-color .15s}
+.phrase-item:active{border-color:var(--pink)}
+.pi-top{display:flex;align-items:baseline;gap:7px;margin-bottom:3px}
+.pi-jp{font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:500;color:var(--txt)}
+.pi-kr{font-size:12px;color:var(--sub)}
+.pi-rom{font-size:11px;color:var(--pink);font-weight:700}
+.pi-krpron{font-size:11px;color:var(--hint)}
+.pi-speak{float:right;font-size:17px;cursor:pointer;color:var(--pink2)}
+
+/* EXCHANGE */
+.exch-hero{background:linear-gradient(135deg,#e91e8c,#ce93d8);border-radius:var(--r);padding:18px;margin-bottom:12px;color:#fff;box-shadow:var(--sh2)}
+.exch-input-wrap{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.exch-input{flex:1;padding:11px 13px;border:none;border-radius:var(--rs);font-size:20px;font-weight:700;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:rgba(255,255,255,.9);outline:none;-webkit-appearance:none}
+.exch-currency{font-size:15px;font-weight:700;opacity:.85;min-width:24px}
+.exch-result{font-size:32px;font-weight:700;margin:4px 0}
+.exch-rate{font-size:11px;opacity:.7;margin-bottom:10px}
+.swap-btn{width:100%;padding:9px;border:1.5px solid rgba(255,255,255,.4);border-radius:var(--rs);background:rgba(255,255,255,.15);color:#fff;font-size:13px;font-family:'Noto Sans KR',sans-serif;font-weight:600;cursor:pointer}
+.quick-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.quick-chip{padding:6px 12px;border-radius:20px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.15);font-size:12px;font-family:'Noto Sans KR',sans-serif;color:#fff;cursor:pointer;font-weight:600}
+.calc-row{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.calc-label{font-size:13px;color:var(--sub);min-width:56px}
+.calc-num{flex:1;padding:10px 13px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:16px;font-weight:700;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none;text-align:right}
+.calc-num:focus{border-color:var(--pink);background:#fff}
+.calc-result-box{background:linear-gradient(135deg,var(--pink3),#f3e5f5);border-radius:var(--r);padding:15px;margin-top:4px;display:none}
+.calc-result-box.show{display:block}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--bor)}
+.calc-result-row:last-child{border-bottom:none}
+.calc-result-label{font-size:13px;color:var(--sub)}
+.calc-result-val{font-size:16px;font-weight:700;color:var(--pink)}
+.calc-result-row.main .calc-result-val{font-size:24px}
+
+/* WEATHER */
+.weather-hero{background:linear-gradient(135deg,#42a5f5,#26c6da);border-radius:var(--r);padding:18px;margin-bottom:12px;color:#fff;box-shadow:0 4px 18px rgba(66,165,245,.28)}
+.w-now-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.w-icon-big{font-size:54px;line-height:1}
+.w-temp-big{font-size:48px;font-weight:700;line-height:1}
+.w-desc{font-size:15px;opacity:.9;margin-top:3px}
+.w-stats{display:flex;border-top:1px solid rgba(255,255,255,.25);padding-top:12px}
+.w-stat{flex:1;text-align:center;border-right:1px solid rgba(255,255,255,.2)}
+.w-stat:last-child{border-right:none}
+.w-stat-val{font-size:14px;font-weight:700}
+.w-stat-lbl{font-size:10px;opacity:.7;margin-top:2px}
+
+.cal-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-title{font-size:15px;font-weight:700;color:var(--txt)}
+.cal-nav-btns{display:flex;gap:6px}
+.cal-nav-btn{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--bor);background:var(--sur);color:var(--txt);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cal-days-head{display:grid;grid-template-columns:repeat(7,1fr);margin-bottom:4px}
+.cal-days-head div{text-align:center;font-size:10px;font-weight:700;color:var(--hint);padding:3px 0}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.cal-cell{border-radius:10px;padding:4px 2px;text-align:center;min-height:64px;background:var(--sur);border:1px solid var(--bor);cursor:default}
+.cal-cell.today{background:var(--pink3);border-color:var(--pink2)}
+.cal-cell.other-month{opacity:.3}
+.cal-date{font-size:11px;font-weight:700;color:var(--txt);margin-bottom:1px}
+.cal-cell.today .cal-date{color:var(--pink)}
+.cal-w-icon{font-size:17px;line-height:1;margin-bottom:1px}
+.cal-w-temp{font-size:9px;color:var(--sub);font-weight:600;line-height:1.3}
+.cal-w-rain{font-size:9px;color:#42a5f5;font-weight:600}
+
+/* NAVIGATION (길찾기) */
+.nav-quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.nav-quick-btn{background:var(--sur);border:1.5px solid var(--bor);border-radius:var(--r);padding:12px 10px;cursor:pointer;text-align:center;transition:border-color .15s;box-shadow:var(--sh)}
+.nav-quick-btn:active{border-color:var(--pink)}
+.nav-quick-icon{font-size:22px;margin-bottom:4px}
+.nav-quick-name{font-size:12px;font-weight:700;color:var(--txt)}
+.nav-quick-sub{font-size:10px;color:var(--hint);margin-top:2px}
+.nav-input-wrap{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.nav-input{flex:1;padding:11px 13px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none}
+.nav-input:focus{border-color:var(--pink);background:#fff}
+.nav-swap-btn{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--bor2);background:var(--sur);color:var(--pink);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.nav-mode-row{display:flex;gap:6px;margin-bottom:12px}
+.nav-mode-btn{flex:1;padding:9px 6px;border-radius:var(--rs);border:1.5px solid var(--bor);background:var(--sur);font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;text-align:center;transition:all .15s}
+.nav-mode-btn.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink);box-shadow:0 3px 10px rgba(233,30,140,.22)}
+.nav-go-btn{width:100%;padding:14px;background:linear-gradient(135deg,#4caf50,#81c784);color:#fff;border:none;border-radius:var(--r);font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(76,175,80,.28);margin-bottom:12px;transition:transform .15s}
+.nav-go-btn:active{transform:scale(.98)}
+.station-search-row{display:flex;gap:6px;margin-bottom:10px}
+.station-search-input{flex:1;padding:9px 12px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none}
+.station-search-input:focus{border-color:var(--pink);background:#fff}
+.station-list-scroll{max-height:320px;overflow-y:auto;scrollbar-width:thin}
+.station-item{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;background:var(--sur);border-radius:var(--rs);margin-bottom:6px;box-shadow:var(--sh);border:1px solid var(--bor);cursor:pointer}
+.station-item:active{border-color:var(--pink)}
+.si-left{display:flex;align-items:center;gap:10px}
+.si-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.si-info{}
+.si-name-jp{font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:500;color:var(--txt)}
+.si-name-kr{font-size:11px;color:var(--sub)}
+.si-tags{display:flex;gap:4px;margin-top:2px;flex-wrap:wrap}
+.si-tag{font-size:10px;padding:1px 6px;border-radius:10px;font-weight:600}
+.si-btns{display:flex;gap:4px}
+.si-btn{padding:6px 9px;border-radius:var(--rs);border:none;font-size:11px;font-family:'Noto Sans KR',sans-serif;font-weight:700;cursor:pointer}
+.si-btn.map{background:var(--pink3);color:var(--pink)}
+.si-btn.go{background:#e8f5e9;color:#2e7d32}
+.si-btn.transit{background:#e3f2fd;color:#1565c0}
+
+/* LEARN */
+.learn-hero{background:linear-gradient(135deg,#ce93d8,#f48fb1);border-radius:var(--r);padding:15px;margin-bottom:12px;color:#fff;box-shadow:var(--sh2)}
+.today-lbl{font-size:10px;font-weight:700;opacity:.8;letter-spacing:1px;margin-bottom:5px}
+.today-jp{font-family:'Noto Sans JP',sans-serif;font-size:28px;font-weight:500;margin-bottom:2px}
+.today-info{font-size:12px;opacity:.85;line-height:1.5}
+.today-speak{position:absolute;top:15px;right:15px;font-size:22px;cursor:pointer;opacity:.85}
+
+/* LEARN TABS */
+.learn-tab-row{display:flex;gap:5px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.learn-tab-row::-webkit-scrollbar{display:none}
+.learn-tab-btn{flex-shrink:0;padding:7px 13px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;white-space:nowrap;transition:all .15s}
+.learn-tab-btn.active{background:linear-gradient(135deg,#ce93d8,#f48fb1);color:#fff;border-color:#ce93d8;box-shadow:0 3px 10px rgba(206,147,216,.3)}
+.learn-section{display:none}
+.learn-section.active{display:block}
+
+/* HIRAGANA TABLE */
+.kana-table-wrap{overflow-x:auto;margin-bottom:12px}
+.kana-table{border-collapse:collapse;width:100%;min-width:300px}
+.kana-table th{background:var(--pink3);color:var(--pink);font-size:11px;padding:6px 4px;text-align:center;border:1px solid var(--bor)}
+.kana-table td{padding:7px 4px;text-align:center;border:1px solid var(--bor);cursor:pointer;transition:background .15s}
+.kana-table td:hover{background:var(--pink3)}
+.kana-cell-jp{font-family:'Noto Sans JP',sans-serif;font-size:16px;font-weight:500;color:var(--txt);display:block}
+.kana-cell-rom{font-size:9px;color:var(--hint);display:block;margin-top:1px}
+.kana-tab-row{display:flex;gap:6px;margin-bottom:10px}
+.kana-tab-btn{flex:1;padding:8px 6px;border-radius:var(--rs);border:1.5px solid var(--bor);background:var(--sur);font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;text-align:center;transition:all .15s}
+.kana-tab-btn.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink)}
+.kana-tip{background:var(--pink4);border-radius:var(--rs);padding:10px 12px;font-size:12px;color:var(--sub);line-height:1.65;border:1px solid var(--bor);margin-bottom:8px}
+
+/* FLASHCARD */
+.flash-level-row{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
+.flash-lv-btn{padding:6px 12px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s}
+.flash-lv-btn.active{background:linear-gradient(135deg,#ce93d8,#f48fb1);color:#fff;border-color:#ce93d8}
+.flash-progress{font-size:12px;color:var(--hint);text-align:center;margin-bottom:8px}
+.flash-score-row{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
+.flash-score-item{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--sub)}
+.flash-card{background:linear-gradient(135deg,#fff0f6,#fff);border-radius:20px;padding:28px 20px;margin-bottom:10px;text-align:center;box-shadow:var(--sh2);border:2px solid var(--pink2);min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;user-select:none}
+.flash-front{font-family:'Noto Sans JP',sans-serif;font-size:34px;font-weight:500;color:var(--txt);margin-bottom:5px}
+.flash-hint-txt{font-size:12px;color:var(--hint)}
+.flash-back{display:none;font-size:14px;color:var(--sub);line-height:1.75;margin-top:10px;padding-top:10px;border-top:1px solid var(--bor);width:100%;text-align:left}
+.flash-back.show{display:block}
+.flash-btns{display:flex;gap:8px;margin-bottom:12px}
+.flash-btn{flex:1;padding:12px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;transition:transform .1s}
+.flash-btn:active{transform:scale(.97)}
+.flash-btn.know{background:linear-gradient(135deg,#4caf50,#81c784);color:#fff;box-shadow:0 3px 10px rgba(76,175,80,.25)}
+.flash-btn.dunno{background:linear-gradient(135deg,#f44336,#e57373);color:#fff;box-shadow:0 3px 10px rgba(244,67,54,.2)}
+
+/* GRAMMAR */
+.grammar-list{display:flex;flex-direction:column;gap:8px}
+.grammar-card{background:var(--sur);border-radius:var(--r);padding:14px;box-shadow:var(--sh);border:1px solid var(--bor);cursor:pointer}
+.grammar-card:active{border-color:var(--pink)}
+.grammar-title{font-size:14px;font-weight:700;color:var(--txt);margin-bottom:2px}
+.grammar-desc{font-size:12px;color:var(--sub)}
+.grammar-detail{display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--bor)}
+.grammar-detail.show{display:block}
+.grammar-ex{background:var(--pink4);border-radius:var(--rs);padding:9px 11px;margin-bottom:6px;border-left:3px solid var(--pink2)}
+.grammar-ex-jp{font-family:'Noto Sans JP',sans-serif;font-size:15px;color:var(--txt);margin-bottom:2px;display:flex;align-items:center;justify-content:space-between}
+.grammar-ex-kr{font-size:12px;color:var(--sub)}
+.grammar-ex-rom{font-size:11px;color:var(--pink);font-weight:600;margin-top:1px}
+
+/* AI LEARN */
+.mode-row{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
+.mode-btn{padding:6px 11px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
+.mode-btn.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink)}
+.learn-result{background:var(--pink4);border-radius:var(--rs);padding:13px;margin-top:9px;display:none;white-space:pre-wrap;font-size:13.5px;line-height:1.8;color:var(--txt);border:1px solid var(--bor)}
+.learn-result.show{display:block}
+
+/* CHECKLIST */
+.progress-card{background:linear-gradient(135deg,var(--pink3),#f3e5f5);border-radius:var(--r);padding:15px;margin-bottom:12px;border:1px solid var(--bor)}
+.progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-label{font-size:13px;font-weight:700;color:var(--txt)}
+.progress-count{font-size:13px;color:var(--pink);font-weight:700}
+.progress-bar-bg{height:7px;background:rgba(233,30,140,.12);border-radius:10px;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,var(--pink),#f06292);border-radius:10px;transition:width .4s}
+.check-reset-btn{margin-top:10px;width:100%;padding:8px;border:1.5px solid var(--bor2);border-radius:var(--rs);background:transparent;font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--pink);cursor:pointer;font-weight:600}
+.check-section{margin-bottom:14px}
+.check-section-title{font-size:11px;font-weight:700;color:var(--hint);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px}
+.check-item{display:flex;align-items:center;gap:12px;background:var(--sur);border-radius:var(--rs);padding:12px 14px;margin-bottom:6px;box-shadow:var(--sh);cursor:pointer;border:1px solid var(--bor);transition:opacity .2s}
+.check-item.done{opacity:.38}
+.check-box{width:22px;height:22px;border-radius:6px;border:2px solid var(--bor2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.check-item.done .check-box{background:linear-gradient(135deg,var(--pink),#f06292);border-color:var(--pink)}
+.check-icon{font-size:12px;color:#fff;display:none}
+.check-item.done .check-icon{display:block}
+.check-text{flex:1;font-size:13px;color:var(--txt);line-height:1.4}
+.check-item.done .check-text{text-decoration:line-through;color:var(--hint)}
+.check-del{width:26px;height:26px;border-radius:50%;border:none;background:transparent;color:var(--hint);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:color .15s,background .15s}
+.check-del:active{color:#e53935;background:#ffebee}
+.check-add-row{display:flex;gap:8px;margin-bottom:8px}
+.check-add-input{flex:1;padding:10px 12px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none}
+.check-add-input:focus{border-color:var(--pink);background:#fff}
+.check-add-btn{padding:10px 14px;border:none;border-radius:var(--rs);background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;font-size:13px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;box-shadow:0 3px 10px rgba(233,30,140,.22)}
+.check-add-btn:active{opacity:.85}
+.check-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.check-section-del{padding:3px 8px;border:1.5px solid var(--bor2);border-radius:20px;background:transparent;font-size:10px;font-family:'Noto Sans KR',sans-serif;color:var(--hint);cursor:pointer}
+.check-section-del:active{color:#e53935;border-color:#e53935}
+.add-section-row{display:flex;gap:8px;margin-bottom:14px}
+.add-section-input{flex:1;padding:10px 12px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none}
+.add-section-input:focus{border-color:var(--pink);background:#fff}
+.add-section-btn{padding:10px 14px;border:none;border-radius:var(--rs);background:linear-gradient(135deg,#ce93d8,#f48fb1);color:#fff;font-size:13px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap}
+
+/* TIPS */
+.tip-card{background:var(--sur);border-radius:var(--r);padding:15px;margin-bottom:11px;box-shadow:var(--sh);border:1px solid var(--bor)}
+.tip-header{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.tip-icon-box{width:36px;height:36px;border-radius:10px;background:var(--pink3);display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.tip-title{font-size:14px;font-weight:700;color:var(--txt)}
+.tip-list{list-style:none}
+.tip-list li{font-size:12.5px;color:var(--sub);padding:6px 0;border-bottom:1px solid var(--bor);display:flex;gap:6px;line-height:1.55;align-items:flex-start}
+.tip-list li:last-child{border-bottom:none;padding-bottom:0}
+.tip-bullet{color:var(--pink);font-size:15px;flex-shrink:0;line-height:1.4}
+.tip-em{color:var(--pink);font-weight:700}
+
+/* MISC */
+.spinner{display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.err{display:none;font-size:12px;color:#c62828;padding:9px 11px;background:#ffebee;border-radius:var(--rs);margin-bottom:11px;border:1px solid #ffcdd2}
+.err.show{display:block}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;padding:10px 20px;border-radius:30px;font-size:12.5px;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999;white-space:nowrap;box-shadow:0 4px 15px rgba(233,30,140,.3)}
+.toast.show{opacity:1}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="header">
+  <div class="hb1"></div><div class="hb2"></div>
+  <div class="hclock" id="tokyoClock">🗼 --:--</div>
+  <h1>🌸 도쿄 여행 도우미</h1>
+  <p>번역 · 사진 · 회화 · 환율 · 날씨 · 길찾기 · 학습 · 체크리스트</p>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('translate',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h12M9 3v2M7 19l5-11 5 11M6.4 17h9.2"/><path d="M21 21l-5-5m0 0A7 7 0 1 0 7 7"/></svg>번역
+  </button>
+  <button class="tab-btn" onclick="showTab('camera',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>사진
+  </button>
+  <button class="tab-btn" onclick="showTab('phrases',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>회화
+  </button>
+  <button class="tab-btn" onclick="showTab('exchange',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>환율
+  </button>
+  <button class="tab-btn" onclick="showTab('weather',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>날씨
+  </button>
+  <button class="tab-btn" onclick="showTab('navi',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>길찾기
+  </button>
+  <button class="tab-btn" onclick="showTab('learn',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>학습
+  </button>
+  <button class="tab-btn" onclick="showTab('checklist',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>체크
+  </button>
+  <button class="tab-btn" onclick="showTab('tips',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>팁
+  </button>
+</div>
+
+<!-- ① 번역 -->
+<div class="section active" id="tab-translate">
+  <div class="card">
+    <div class="sec-label">한국어 입력</div>
+    <textarea id="inputText" placeholder="번역할 내용을 입력하세요&#10;예: 이 근처에 편의점이 있나요?" rows="4"></textarea>
+  </div>
+  <button class="big-btn" id="translateBtn" onclick="doTranslate()">
+    <div class="spinner" id="spinner"></div><span id="btnText">✨ 일본어로 번역하기</span>
+  </button>
+  <div class="err" id="errorBox"></div>
+  <div class="result-card" id="resultCard">
+    <div class="sec-label">일본어</div>
+    <div class="jp-text" id="jpText"></div>
+    <div class="rom-row">🔊 <span id="romText"></span>
+      <span onclick="speakJP()" style="cursor:pointer;margin-left:6px;font-size:18px">▶</span>
+    </div>
+    <div class="kr-pron" id="krPron"></div>
+    <div class="natural-text" id="naturalText"></div>
+    <div class="action-row">
+      <button class="action-btn" onclick="copyResult()">📋 복사</button>
+      <button class="action-btn" onclick="shareResult()">🔗 공유</button>
+    </div>
+  </div>
+</div>
+
+<!-- ② 사진 번역 -->
+<div class="section" id="tab-camera">
+  <div class="card">
+    <div class="sec-label">메뉴판 · 간판 · 안내문 번역</div>
+    <div class="cam-upload" onclick="document.getElementById('camInput').click()">
+      <div style="font-size:38px">📸</div>
+      <p style="font-size:13px;color:var(--sub);margin-top:7px">사진을 찍거나 갤러리에서 선택<br><span style="font-size:11px;color:var(--hint)">메뉴판, 간판, 안내문 모두 가능</span></p>
+    </div>
+    <input type="file" id="camInput" accept="image/*" capture="environment" onchange="onImageSelect(event)">
+    <img id="camPreview" alt="">
+  </div>
+  <button class="big-btn" id="camBtn" onclick="doCamTranslate()" style="display:none">
+    <div class="spinner" id="camSpinner"></div><span id="camBtnText">🔍 일본어 읽어주기</span>
+  </button>
+  <div class="err" id="camError"></div>
+  <div class="result-card" id="camResult">
+    <div class="sec-label">번역 결과</div>
+    <div id="camOutput" style="font-size:13.5px;line-height:1.8;white-space:pre-wrap;color:var(--txt)"></div>
+  </div>
+</div>
+
+<!-- ③ 회화 -->
+<div class="section" id="tab-phrases">
+  <div class="cat-tabs" id="catTabs"></div>
+  <div class="phrase-list" id="phraseList"></div>
+</div>
+
+<!-- ④ 환율 -->
+<div class="section" id="tab-exchange">
+  <div class="exch-hero">
+    <div class="sec-label" style="color:rgba(255,255,255,.7)">실시간 환율 계산기</div>
+    <div id="exchDir" style="font-size:12px;opacity:.8;margin-bottom:8px">🇰🇷 원 → 🇯🇵 엔</div>
+    <div class="exch-input-wrap">
+      <input class="exch-input" type="number" id="exchInput" value="10000" oninput="calcExch()" inputmode="numeric">
+      <span class="exch-currency" id="exchFromCur">원</span>
+    </div>
+    <div class="exch-result" id="exchResult">—</div>
+    <div class="exch-rate" id="exchRateLabel"></div>
+    <button class="swap-btn" onclick="swapExch()">⇅ 방향 바꾸기</button>
+    <div class="quick-row" id="quickAmounts"></div>
+  </div>
+  <div class="card">
+    <div class="sec-label">🧾 영수증 나누기 계산기</div>
+    <div class="calc-row"><div class="calc-label">총 금액</div><input class="calc-num" type="number" id="calcTotal" placeholder="0" inputmode="numeric" oninput="calcReceipt()"><span style="font-size:13px;color:var(--sub);margin-left:6px">엔</span></div>
+    <div class="calc-row"><div class="calc-label">인원수</div><input class="calc-num" type="number" id="calcPeople" placeholder="2" value="2" inputmode="numeric" oninput="calcReceipt()" style="max-width:80px"><span style="font-size:13px;color:var(--sub);margin-left:6px">명</span></div>
+    <div class="calc-row"><div class="calc-label">할인액</div><input class="calc-num" type="number" id="calcDiscount" placeholder="0" inputmode="numeric" oninput="calcReceipt()"><span style="font-size:13px;color:var(--sub);margin-left:6px">엔</span></div>
+    <div class="calc-result-box" id="calcResultBox">
+      <div class="calc-result-row main"><div class="calc-result-label">1인당 금액</div><div class="calc-result-val" id="calcPerPerson">—</div></div>
+      <div class="calc-result-row"><div class="calc-result-label">한국 원 환산</div><div class="calc-result-val" id="calcKRW" style="font-size:14px">—</div></div>
+      <div class="calc-result-row"><div class="calc-result-label">총액 (할인 후)</div><div class="calc-result-val" id="calcAfterDiscount" style="font-size:14px;color:var(--sub)">—</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="sec-label">💡 환전 팁</div>
+    <ul class="tip-list">
+      <li><span class="tip-bullet">•</span>공항보다 <span class="tip-em">시내 환전소</span>가 환율 좋음</li>
+      <li><span class="tip-bullet">•</span>7-Eleven ATM에서 <span class="tip-em">외국 카드 인출</span> 가능</li>
+      <li><span class="tip-bullet">•</span>트래블월렛·트래블로그 카드로 <span class="tip-em">수수료 절약</span></li>
+      <li><span class="tip-bullet">•</span>일본은 <span class="tip-em">현금 문화</span> 강함 — 여유있게 준비</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ⑤ 날씨 달력 -->
+<div class="section" id="tab-weather">
+  <div id="weatherNowBox"><div style="text-align:center;padding:40px 0;color:var(--hint);font-size:13px"><div style="font-size:32px;margin-bottom:10px">🌤️</div>날씨 불러오는 중...</div></div>
+  <div class="card">
+    <div class="cal-nav-row">
+      <div class="cal-title" id="calTitle"></div>
+      <div class="cal-nav-btns">
+        <button class="cal-nav-btn" onclick="moveMonth(-1)">‹</button>
+        <button class="cal-nav-btn" onclick="moveMonth(1)">›</button>
+      </div>
+    </div>
+    <div class="cal-days-head" id="calHead"></div>
+    <div class="cal-grid" id="calGrid"></div>
+  </div>
+  <div style="font-size:11px;color:var(--hint);text-align:center;margin-top:-6px;margin-bottom:12px">💧 강수확률 포함 · 도쿄 실시간 16일 예보</div>
+</div>
+
+<!-- ⑥ 길찾기 -->
+<div class="section" id="tab-navi">
+  <!-- 빠른 길찾기 -->
+  <div class="card">
+    <div class="sec-label">⚡ 자주 가는 곳 바로 가기</div>
+    <div class="nav-quick-grid" id="navQuickGrid"></div>
+  </div>
+
+  <!-- 직접 입력 -->
+  <div class="card">
+    <div class="sec-label">🗺️ 직접 길찾기</div>
+    <div class="nav-input-wrap">
+      <input class="nav-input" type="text" id="navFrom" placeholder="출발지 (예: 신주쿠역, 현재 위치)">
+      <button class="nav-swap-btn" onclick="swapNav()">⇅</button>
+    </div>
+    <div class="nav-input-wrap" style="margin-bottom:12px">
+      <input class="nav-input" type="text" id="navTo" placeholder="목적지 (예: 아사쿠사, 도쿄타워)">
+    </div>
+    <div class="nav-mode-row" id="navModeRow"></div>
+    <button class="nav-go-btn" onclick="doNav()">🗺️ 구글맵으로 길찾기</button>
+    <button class="nav-go-btn" style="background:linear-gradient(135deg,#ff7043,#ff8a65);box-shadow:0 4px 14px rgba(255,112,67,.28)" onclick="doNavCurrent()">📍 현재 위치에서 길찾기</button>
+  </div>
+
+  <!-- 역 목록 -->
+  <div class="card">
+    <div class="sec-label">🚇 야마노테선 역 검색</div>
+    <div class="station-search-row">
+      <input class="station-search-input" type="text" id="stationSearch" placeholder="역 이름 검색 (한국어 / 일본어)" oninput="filterStations()">
+    </div>
+    <div class="station-list-scroll" id="stationListWrap"></div>
+  </div>
+</div>
+
+<!-- ⑦ 학습 -->
+<div class="section" id="tab-learn">
+  <div class="learn-hero" style="position:relative">
+    <div class="today-lbl">✨ 오늘의 단어</div>
+    <div class="today-jp" id="todayJP">—</div>
+    <div class="today-info" id="todayInfo">로딩 중...</div>
+    <div class="today-speak" onclick="speakWord()">🔊</div>
+  </div>
+
+  <div class="learn-tab-row">
+    <button class="learn-tab-btn active" onclick="showLearnTab('kana',this)">🔤 히라가나·카타카나</button>
+    <button class="learn-tab-btn" onclick="showLearnTab('flash',this)">🃏 단어 플래시카드</button>
+    <button class="learn-tab-btn" onclick="showLearnTab('grammar',this)">📐 문법 카드</button>
+    <button class="learn-tab-btn" onclick="showLearnTab('ai',this)">🤖 AI 선생님</button>
+  </div>
+
+  <!-- 히라가나/카타카나 -->
+  <div class="learn-section active" id="ls-kana">
+    <div class="kana-tab-row">
+      <button class="kana-tab-btn active" onclick="showKana('hiragana',this)">ひらがな</button>
+      <button class="kana-tab-btn" onclick="showKana('katakana',this)">カタカナ</button>
+    </div>
+    <div class="kana-tip" id="kanaTip"></div>
+    <div class="kana-table-wrap"><table class="kana-table" id="kanaTable"></table></div>
+    <div style="font-size:11px;color:var(--hint);text-align:center;margin-bottom:8px">글자를 누르면 발음을 들을 수 있어요 🔊</div>
+  </div>
+
+  <!-- 플래시카드 -->
+  <div class="learn-section" id="ls-flash">
+    <div class="flash-level-row" id="flashLevelRow"></div>
+    <div class="flash-score-row">
+      <div class="flash-score-item">✅ <span id="flashKnow">0</span></div>
+      <div class="flash-score-item">❌ <span id="flashDunno">0</span></div>
+      <div class="flash-score-item">📦 남은 <span id="flashLeft">0</span></div>
+    </div>
+    <div class="flash-progress" id="flashProgress">카드를 눌러서 뒷면을 확인하세요</div>
+    <div class="flash-card" id="flashCard" onclick="flipCard()">
+      <div class="flash-front" id="flashFront">—</div>
+      <div class="flash-hint-txt" id="flashHintTxt">눌러서 확인</div>
+      <div class="flash-back" id="flashBack"></div>
+    </div>
+    <div class="flash-btns" id="flashBtns" style="display:none">
+      <button class="flash-btn dunno" onclick="answerCard(false)">❌ 모르겠어</button>
+      <button class="flash-btn know" onclick="answerCard(true)">✅ 알아요!</button>
+    </div>
+  </div>
+
+  <!-- 문법 카드 -->
+  <div class="learn-section" id="ls-grammar">
+    <div class="grammar-list" id="grammarList"></div>
+  </div>
+
+  <!-- AI 선생님 -->
+  <div class="learn-section" id="ls-ai">
+    <div class="card">
+      <div class="sec-label">AI 학습 모드 선택</div>
+      <div class="mode-row">
+        <button class="mode-btn active" onclick="setMode(this,'translate')">📝 한→일</button>
+        <button class="mode-btn" onclick="setMode(this,'write')">✍️ 쓰기</button>
+        <button class="mode-btn" onclick="setMode(this,'hiragana')">あ 히라가나</button>
+        <button class="mode-btn" onclick="setMode(this,'word')">📖 단어</button>
+        <button class="mode-btn" onclick="setMode(this,'grammar')">📐 문법</button>
+      </div>
+      <textarea id="learnInput" placeholder="궁금한 것을 입력하세요&#10;예: '사랑해'를 일본어로 어떻게 써요?" rows="3"></textarea>
+      <button class="big-btn" id="learnBtn" onclick="doLearn()" style="margin-top:9px;margin-bottom:0">
+        <div class="spinner" id="learnSpinner"></div><span id="learnBtnText">✨ 질문하기</span>
+      </button>
+      <div class="err" id="learnError" style="margin-top:9px;margin-bottom:0"></div>
+      <div class="learn-result" id="learnResult"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ⑧ 체크리스트 -->
+<div class="section" id="tab-checklist">
+  <!-- 진행률 -->
+  <div class="progress-card">
+    <div class="progress-row"><div class="progress-label">여행 준비 현황 ✈️</div><div class="progress-count" id="progressCount">0 / 0</div></div>
+    <div class="progress-bar-bg"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+    <button class="check-reset-btn" onclick="resetAllChecks()">↺ 체크 전체 초기화</button>
+  </div>
+
+  <!-- 카테고리 추가 -->
+  <div class="add-section-row">
+    <input class="add-section-input" type="text" id="newSectionInput" placeholder="새 카테고리 이름 (예: 🎒 쇼핑 리스트)">
+    <button class="add-section-btn" onclick="addSection()">+ 추가</button>
+  </div>
+
+  <!-- 체크리스트 본문 -->
+  <div id="checklistContent"></div>
+</div>
+
+<!-- ⑨ 여행팁 -->
+<div class="section" id="tab-tips">
+  <div class="tip-card"><div class="tip-header"><div class="tip-icon-box">🌅</div><div class="tip-title">인사 · 기본 매너</div></div><ul class="tip-list">
+    <li><span class="tip-bullet">•</span>아침 <span class="tip-em">오하요 고자이마스</span> / 낮 <span class="tip-em">곤니치와</span> / 저녁 <span class="tip-em">곤방와</span></li>
+    <li><span class="tip-bullet">•</span>식사 전 <span class="tip-em">이타다키마스</span>, 후엔 <span class="tip-em">고치소사마데시타</span></li>
+    <li><span class="tip-bullet">•</span>가게 들어갈 때 <span class="tip-em">이랏샤이마세</span>는 대답 안 해도 됨</li>
+    <li><span class="tip-bullet">•</span><span class="tip-em">스미마셍</span>은 실례 + 감사 동시 표현</li>
+  </ul></div>
+  <div class="tip-card"><div class="tip-header"><div class="tip-icon-box">🚕</div><div class="tip-title">택시 · 교통</div></div><ul class="tip-list">
+    <li><span class="tip-bullet">•</span>택시는 <span class="tip-em">승강장에서 줄서서</span> 탑승</li>
+    <li><span class="tip-bullet">•</span>뒷문은 <span class="tip-em">자동으로 열리고 닫힘</span></li>
+    <li><span class="tip-bullet">•</span>에스컬레이터 <span class="tip-em">도쿄는 왼쪽 서기</span></li>
+    <li><span class="tip-bullet">•</span>Suica 카드 하나로 전철·버스·편의점 결제</li>
+  </ul></div>
+  <div class="tip-card"><div class="tip-header"><div class="tip-icon-box">🍜</div><div class="tip-title">식당 · 음식</div></div><ul class="tip-list">
+    <li><span class="tip-bullet">•</span>많은 식당이 <span class="tip-em">입구 자판기에서 식권 구매</span> 방식</li>
+    <li><span class="tip-bullet">•</span>물은 보통 무료 — <span class="tip-em">오히야</span> 달라고 하면 됨</li>
+    <li><span class="tip-bullet">•</span>계산은 <span class="tip-em">카운터에서</span> / <span class="tip-em">팁 문화 없음</span></li>
+  </ul></div>
+  <div class="tip-card"><div class="tip-header"><div class="tip-icon-box">💡</div><div class="tip-title">알아두면 유용</div></div><ul class="tip-list">
+    <li><span class="tip-bullet">•</span>경찰 <span class="tip-em">110</span> / 구급·소방 <span class="tip-em">119</span></li>
+    <li><span class="tip-bullet">•</span>관광지 <span class="tip-em">코인로커</span>에 짐 맡기면 이동 편리</li>
+    <li><span class="tip-bullet">•</span>무료 와이파이: <span class="tip-em">7-Eleven · 스타벅스 · 맥도날드</span></li>
+    <li><span class="tip-bullet">•</span>배탈엔 약국에서 <span class="tip-em">정로환(正露丸)</span></li>
+    <li><span class="tip-bullet">•</span>면세 <span class="tip-em">여권 필수</span> / 같은 가게 5,000엔 이상</li>
+  </ul></div>
+</div>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ── 시계 ──────────────────────────────────────────────
+function updateClock(){
+  var now=new Date();
+  var t=new Date(now.toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));
+  document.getElementById('tokyoClock').textContent='🗼 '+String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
+}
+updateClock(); setInterval(updateClock,10000);
+
+// ── 탭 ──────────────────────────────────────────────
+function showTab(name,btn){
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('tab-'+name).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+// ── 번역 ──────────────────────────────────────────────
+async function doTranslate(){
+  var text=document.getElementById('inputText').value.trim(); if(!text) return;
+  setLoad('translateBtn','spinner','btnText','번역 중...',true);
+  document.getElementById('errorBox').classList.remove('show');
+  document.getElementById('resultCard').classList.remove('show');
+  try{
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+        messages:[{role:'user',content:'다음 한국어를 일본어로 번역하세요. JSON만 응답 (마크다운 없이).\n한국어: "'+text+'"\n{"japanese":"일본어","romaji":"로마자 발음","krpron":"한국어로 읽는 발음","natural":"상황 설명 또는 팁 (한국어, 1문장)"}'}]})});
+    var data=await res.json();
+    var p=JSON.parse(data.content.map(function(i){return i.text||''}).join('').replace(/```json|```/g,'').trim());
+    document.getElementById('jpText').textContent=p.japanese;
+    document.getElementById('romText').textContent=p.romaji;
+    document.getElementById('krPron').textContent='한국어 발음: '+p.krpron;
+    document.getElementById('naturalText').textContent=p.natural;
+    document.getElementById('resultCard').classList.add('show');
+  }catch(e){showErr('errorBox','번역 오류. 다시 시도해주세요.');}
+  setLoad('translateBtn','spinner','btnText','✨ 일본어로 번역하기',false);
+}
+function speakJP(){speak(document.getElementById('jpText').textContent);}
+function copyResult(){
+  navigator.clipboard.writeText(document.getElementById('jpText').textContent+'\n'+document.getElementById('romText').textContent+'\n'+document.getElementById('krPron').textContent).then(function(){showToast('복사됐어요 ✓')}).catch(function(){});
+}
+function shareResult(){
+  var t=document.getElementById('jpText').textContent+'\n'+document.getElementById('romText').textContent;
+  if(navigator.share){navigator.share({title:'일본어 번역',text:t});}else copyResult();
+}
+
+// ── 사진 번역 ──────────────────────────────────────────────
+var camB64=null;
+function onImageSelect(e){
+  var file=e.target.files[0]; if(!file) return;
+  var reader=new FileReader();
+  reader.onload=function(ev){
+    camB64=ev.target.result.split(',')[1];
+    var img=document.getElementById('camPreview'); img.src=ev.target.result; img.style.display='block'; img.classList.add('show');
+    document.getElementById('camBtn').style.display='flex'; document.getElementById('camResult').classList.remove('show');
+  };
+  reader.readAsDataURL(file);
+}
+async function doCamTranslate(){
+  if(!camB64){showToast('사진을 먼저 선택해주세요');return;}
+  setLoad('camBtn','camSpinner','camBtnText','분석 중...',true);
+  document.getElementById('camError').classList.remove('show'); document.getElementById('camResult').classList.remove('show');
+  try{
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1500,
+        messages:[{role:'user',content:[
+          {type:'image',source:{type:'base64',media_type:'image/jpeg',data:camB64}},
+          {type:'text',text:'이미지에 있는 일본어를 모두 찾아 한국어로 번역해주세요.\n형식:\n원문: (일본어)\n발음: (로마자)\n한국어 발음: (한국어)\n번역: (한국어)\n\n여러 개면 번호 매겨 모두 번역.'}
+        ]}]})});
+    var data=await res.json();
+    document.getElementById('camOutput').textContent=data.content.map(function(i){return i.text||''}).join('');
+    document.getElementById('camResult').classList.add('show');
+  }catch(e){showErr('camError','분석 오류. 다시 시도해주세요.');}
+  setLoad('camBtn','camSpinner','camBtnText','🔍 일본어 읽어주기',false);
+}
+
+// ── 회화 ──────────────────────────────────────────────
+var CATS=[{id:'hotel',label:'🏨 호텔'},{id:'conv',label:'🏪 편의점'},{id:'rest',label:'🍱 식당'},{id:'shop',label:'🛍️ 쇼핑'},{id:'trans',label:'🚃 교통'}];
+var PHRASES={
+  hotel:[
+    {jp:'チェックインをお願いします',rom:'chekkuin wo onegai shimasu',krp:'체꾸인 오 오네가이 시마스',kr:'체크인 부탁드립니다'},
+    {jp:'チェックアウトは何時ですか？',rom:'chekkuauto wa nanji desu ka',krp:'체꾸아우토 와 난지 데스까',kr:'체크아웃 몇 시예요?'},
+    {jp:'部屋のカギをなくしました',rom:'heya no kagi wo nakushimashita',krp:'헤야 노 카기 오 나쿠시마시타',kr:'방 열쇠 잃어버렸어요'},
+    {jp:'Wi-Fiのパスワードを教えてください',rom:'wifi no pasuwaado wo oshiete kudasai',krp:'와이파이 파스와도 오시에테 쿠다사이',kr:'와이파이 비밀번호 알려주세요'},
+    {jp:'タオルを追加でください',rom:'taoru wo tsuika de kudasai',krp:'타오루 오 츠이카 데 쿠다사이',kr:'수건 추가로 주세요'},
+    {jp:'荷物を預けられますか？',rom:'nimotsu wo azukeraremasu ka',krp:'니모츠 오 아즈케라레마스까',kr:'짐 맡아주실 수 있나요?'},
+  ],
+  conv:[
+    {jp:'袋はいりません',rom:'fukuro wa irimasen',krp:'후쿠로 와 이리마센',kr:'봉투 필요 없어요'},
+    {jp:'温めてください',rom:'atatamete kudasai',krp:'아타타메테 쿠다사이',kr:'데워주세요'},
+    {jp:'レジ袋ください',rom:'reji bukuro kudasai',krp:'레지 부쿠로 쿠다사이',kr:'비닐봉투 주세요'},
+    {jp:'これはどこにありますか？',rom:'kore wa doko ni arimasu ka',krp:'코레 와 도코 니 아리마스까',kr:'이거 어디 있어요?'},
+    {jp:'領収書をください',rom:'ryoushuusho wo kudasai',krp:'료슈쇼 오 쿠다사이',kr:'영수증 주세요'},
+    {jp:'カードで払えますか？',rom:'kaado de haraemasu ka',krp:'카도 데 하라에마스까',kr:'카드 결제 되나요?'},
+  ],
+  rest:[
+    {jp:'一人です',rom:'hitori desu',krp:'히토리 데스',kr:'1명이에요'},
+    {jp:'メニューをください',rom:'menyu wo kudasai',krp:'메뉴 오 쿠다사이',kr:'메뉴 주세요'},
+    {jp:'おすすめは何ですか？',rom:'osusume wa nan desu ka',krp:'오스스메 와 난 데스까',kr:'추천 메뉴가 뭔가요?'},
+    {jp:'お会計をお願いします',rom:'okaikei wo onegai shimasu',krp:'오카이케이 오 오네가이 시마스',kr:'계산 부탁드려요'},
+    {jp:'水をください',rom:'mizu wo kudasai',krp:'미즈 오 쿠다사이',kr:'물 주세요'},
+    {jp:'アレルギーがあります',rom:'arerugii ga arimasu',krp:'아레루기 가 아리마스',kr:'알레르기가 있어요'},
+  ],
+  shop:[
+    {jp:'これはいくらですか？',rom:'kore wa ikura desu ka',krp:'코레 와 이쿠라 데스까',kr:'이거 얼마예요?'},
+    {jp:'試着できますか？',rom:'shichaku dekimasu ka',krp:'시챠쿠 데키마스까',kr:'입어볼 수 있나요?'},
+    {jp:'免税できますか？',rom:'menzei dekimasu ka',krp:'멘제이 데키마스까',kr:'면세 되나요?'},
+    {jp:'別の色はありますか？',rom:'betsu no iro wa arimasu ka',krp:'베츠 노 이로 와 아리마스까',kr:'다른 색상 있나요?'},
+    {jp:'大きいサイズはありますか？',rom:'ookii saizu wa arimasu ka',krp:'오키이 사이즈 와 아리마스까',kr:'큰 사이즈 있나요?'},
+  ],
+  trans:[
+    {jp:'〇〇駅までお願いします',rom:'〇〇 eki made onegai shimasu',krp:'〇〇 에키 마데 오네가이 시마스',kr:'〇〇역까지 부탁드려요'},
+    {jp:'〇〇に行くにはどの電車ですか？',rom:'〇〇 ni iku niwa dono densha desu ka',krp:'〇〇 니 이쿠 니와 도노 덴샤 데스까',kr:'〇〇 가려면 어느 전철?'},
+    {jp:'ここに止めてください',rom:'koko ni tomete kudasai',krp:'코코 니 토메테 쿠다사이',kr:'여기서 세워주세요'},
+    {jp:'次は何駅ですか？',rom:'tsugi wa nan eki desu ka',krp:'츠기 와 난 에키 데스까',kr:'다음 역이 어디예요?'},
+    {jp:'乗り換えはどこですか？',rom:'norikae wa doko desu ka',krp:'노리카에 와 도코 데스까',kr:'환승은 어디서 해요?'},
+  ],
+};
+var currentCat='hotel';
+function renderCatTabs(){
+  document.getElementById('catTabs').innerHTML=CATS.map(function(c){
+    return '<button class="cat-tab'+(c.id===currentCat?' active':'')+'" onclick="selectCat(\''+c.id+'\')">'+c.label+'</button>';
+  }).join('');
+}
+function selectCat(id){currentCat=id;renderCatTabs();renderPhrases();}
+function renderPhrases(){
+  document.getElementById('phraseList').innerHTML=(PHRASES[currentCat]||[]).map(function(p){
+    var enc=encodeURIComponent(JSON.stringify(p));
+    return '<div class="phrase-item" onclick="usePhrase(\''+enc+'\')">'
+      +'<span class="pi-speak" onclick="event.stopPropagation();speak(\''+encodeURIComponent(p.jp)+'\')">🔊</span>'
+      +'<div class="pi-top"><span class="pi-jp">'+p.jp+'</span><span class="pi-kr">'+p.kr+'</span></div>'
+      +'<div class="pi-rom">'+p.rom+'</div>'
+      +'<div class="pi-krpron">한국어 발음: '+p.krp+'</div></div>';
+  }).join('');
+}
+function usePhrase(enc){
+  var p=JSON.parse(decodeURIComponent(enc));
+  showTab('translate',document.querySelectorAll('.tab-btn')[0]);
+  document.getElementById('jpText').textContent=p.jp;
+  document.getElementById('romText').textContent=p.rom;
+  document.getElementById('krPron').textContent='한국어 발음: '+p.krp;
+  document.getElementById('naturalText').textContent='의미: '+p.kr;
+  document.getElementById('resultCard').classList.add('show');
+}
+
+// ── 환율 ──────────────────────────────────────────────
+var exchMode='krw_jpy', exchRate=0.0093;
+async function fetchRate(){
+  try{
+    var r=await fetch('https://open.er-api.com/v6/latest/KRW');
+    var d=await r.json();
+    if(d.rates&&d.rates.JPY){exchRate=d.rates.JPY;document.getElementById('exchRateLabel').textContent='1 KRW = '+exchRate.toFixed(4)+' JPY (실시간)';}
+    else{document.getElementById('exchRateLabel').textContent='1 KRW ≈ 0.0093 JPY (기본값)';}
+  }catch(e){document.getElementById('exchRateLabel').textContent='1 KRW ≈ 0.0093 JPY (기본값)';}
+  calcExch(); calcReceipt();
+}
+function calcExch(){
+  var v=parseFloat(document.getElementById('exchInput').value)||0;
+  document.getElementById('exchResult').textContent=exchMode==='krw_jpy'?'¥ '+Math.round(v*exchRate).toLocaleString():'₩ '+Math.round(v/exchRate).toLocaleString();
+}
+function swapExch(){
+  exchMode=exchMode==='krw_jpy'?'jpy_krw':'krw_jpy';
+  var k=exchMode==='krw_jpy';
+  document.getElementById('exchDir').textContent=k?'🇰🇷 원 → 🇯🇵 엔':'🇯🇵 엔 → 🇰🇷 원';
+  document.getElementById('exchFromCur').textContent=k?'원':'엔';
+  document.getElementById('exchInput').value=k?'10000':'1000';
+  renderQuickAmounts(); calcExch();
+}
+function setQuick(v){document.getElementById('exchInput').value=v;calcExch();}
+function renderQuickAmounts(){
+  var k=exchMode==='krw_jpy';
+  document.getElementById('quickAmounts').innerHTML=[5000,10000,50000,100000].map(function(a){
+    var val=k?a:Math.round(a/100);
+    return '<button class="quick-chip" onclick="setQuick('+val+')">'+(k?'₩':'¥')+val.toLocaleString()+'</button>';
+  }).join('');
+}
+function calcReceipt(){
+  var total=parseFloat(document.getElementById('calcTotal').value)||0;
+  var people=Math.max(1,parseInt(document.getElementById('calcPeople').value)||1);
+  var discount=parseFloat(document.getElementById('calcDiscount').value)||0;
+  if(!total){document.getElementById('calcResultBox').classList.remove('show');return;}
+  var after=Math.max(0,total-discount);
+  var per=Math.ceil(after/people);
+  document.getElementById('calcPerPerson').textContent='¥ '+per.toLocaleString();
+  document.getElementById('calcKRW').textContent='₩ '+Math.round(per/exchRate).toLocaleString();
+  document.getElementById('calcAfterDiscount').textContent='¥ '+after.toLocaleString();
+  document.getElementById('calcResultBox').classList.add('show');
+}
+
+// ── 날씨 ──────────────────────────────────────────────
+var WI={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',80:'🌦️',81:'🌧️',82:'⛈️',95:'⛈️',99:'⛈️'};
+var WD={0:'맑음',1:'대체로 맑음',2:'구름 조금',3:'흐림',45:'안개',51:'이슬비',53:'이슬비',55:'이슬비',61:'비',63:'비',65:'강한 비',71:'눈',80:'소나기',95:'뇌우'};
+var calToday=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));
+var calYear=calToday.getFullYear(), calMonth=calToday.getMonth(), wByDate={};
+
+async function fetchWeather(){
+  try{
+    var url='https://api.open-meteo.com/v1/forecast?latitude=35.6762&longitude=139.6503'
+      +'&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,precipitation'
+      +'&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max'
+      +'&timezone=Asia%2FTokyo&forecast_days=16';
+    var r=await fetch(url);
+    var d=await r.json();
+    var c=d.current, daily=d.daily;
+    var icon=WI[c.weather_code]||'🌤️';
+    var desc=WD[c.weather_code]||'';
+    document.getElementById('weatherNowBox').innerHTML=
+      '<div class="weather-hero">'
+      +'<div class="sec-label" style="color:rgba(255,255,255,.7)">🗼 도쿄 현재 날씨</div>'
+      +'<div class="w-now-row"><div class="w-icon-big">'+icon+'</div>'
+      +'<div><div class="w-temp-big">'+Math.round(c.temperature_2m)+'°</div><div class="w-desc">'+desc+'</div></div></div>'
+      +'<div class="w-stats">'
+      +'<div class="w-stat"><div class="w-stat-val">'+Math.round(c.apparent_temperature)+'°</div><div class="w-stat-lbl">체감</div></div>'
+      +'<div class="w-stat"><div class="w-stat-val">'+c.relative_humidity_2m+'%</div><div class="w-stat-lbl">습도</div></div>'
+      +'<div class="w-stat"><div class="w-stat-val">'+Math.round(c.wind_speed_10m)+'km</div><div class="w-stat-lbl">바람</div></div>'
+      +'<div class="w-stat"><div class="w-stat-val">'+c.precipitation+'mm</div><div class="w-stat-lbl">강수</div></div>'
+      +'</div></div>';
+    for(var i=0;i<daily.time.length;i++){
+      wByDate[daily.time[i]]={icon:WI[daily.weather_code[i]]||'🌤️',max:Math.round(daily.temperature_2m_max[i]),min:Math.round(daily.temperature_2m_min[i]),rain:daily.precipitation_probability_max[i]};
+    }
+    renderCalendar();
+  }catch(e){
+    document.getElementById('weatherNowBox').innerHTML='<div style="text-align:center;padding:24px 0;color:var(--hint);font-size:13px">날씨를 불러올 수 없어요.<br><br><button onclick="fetchWeather()" style="padding:9px 18px;border:1.5px solid var(--bor);border-radius:20px;background:var(--sur);font-size:13px;cursor:pointer;color:var(--pink);font-weight:600">다시 시도</button></div>';
+    renderCalendar();
+  }
+}
+var MONTHS=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+var DAYS_KR=['일','월','화','수','목','금','토'];
+function renderCalendar(){
+  document.getElementById('calTitle').textContent=calYear+'년 '+MONTHS[calMonth];
+  document.getElementById('calHead').innerHTML=DAYS_KR.map(function(d,i){
+    return '<div style="color:'+(i===0?'#e91e8c':i===6?'#2196f3':'var(--hint)')+'">'+d+'</div>';
+  }).join('');
+  var first=new Date(calYear,calMonth,1).getDay();
+  var lastDay=new Date(calYear,calMonth+1,0).getDate();
+  var prevLast=new Date(calYear,calMonth,0).getDate();
+  var cells=[];
+  for(var i=0;i<first;i++){var pm=calMonth===0?11:calMonth-1,py=calMonth===0?calYear-1:calYear;cells.push({d:prevLast-first+1+i,other:true,y:py,m:pm});}
+  for(var d=1;d<=lastDay;d++) cells.push({d:d,other:false,y:calYear,m:calMonth});
+  while(cells.length%7!==0){var nm=calMonth===11?0:calMonth+1,ny=calMonth===11?calYear+1:calYear;cells.push({d:cells.length-first-lastDay+1,other:true,y:ny,m:nm});}
+  document.getElementById('calGrid').innerHTML=cells.map(function(c){
+    var isToday=!c.other&&c.d===calToday.getDate()&&calMonth===calToday.getMonth()&&calYear===calToday.getFullYear();
+    var dateStr=c.y+'-'+String(c.m+1).padStart(2,'0')+'-'+String(c.d).padStart(2,'0');
+    var w=wByDate[dateStr];
+    var wHtml=w&&!c.other?'<div class="cal-w-icon">'+w.icon+'</div><div class="cal-w-temp">'+w.max+'°/'+w.min+'°</div><div class="cal-w-rain">💧'+w.rain+'%</div>':'';
+    return '<div class="cal-cell'+(isToday?' today':'')+(c.other?' other-month':'')+'"><div class="cal-date">'+c.d+'</div>'+wHtml+'</div>';
+  }).join('');
+}
+function moveMonth(dir){
+  calMonth+=dir;
+  if(calMonth>11){calMonth=0;calYear++;}
+  if(calMonth<0){calMonth=11;calYear--;}
+  renderCalendar();
+}
+
+// ── 길찾기 ──────────────────────────────────────────────
+var NAV_QUICK=[
+  {icon:'⛩',name:'센소지',sub:'아사쿠사',q:'浅草寺'},
+  {icon:'🗼',name:'도쿄타워',sub:'하마마쓰초',q:'東京タワー'},
+  {icon:'🎭',name:'시부야',sub:'스크램블',q:'渋谷スクランブル交差点'},
+  {icon:'🌳',name:'신주쿠 교엔',sub:'신주쿠',q:'新宿御苑'},
+  {icon:'🏬',name:'아키하바라',sub:'전자상가',q:'秋葉原電気街'},
+  {icon:'🎌',name:'신오쿠보',sub:'코리아타운',q:'新大久保 コリアンタウン'},
+  {icon:'🗾',name:'스카이트리',sub:'오시아게',q:'東京スカイツリー'},
+  {icon:'🐠',name:'쓰키지 시장',sub:'쓰키지',q:'築地市場'},
+];
+var navMode='transit';
+var NAV_MODES=[{id:'transit',label:'🚇 대중교통'},{id:'walking',label:'🚶 도보'},{id:'driving',label:'🚗 자동차'}];
+
+function renderNavQuick(){
+  document.getElementById('navQuickGrid').innerHTML=NAV_QUICK.map(function(p){
+    return '<div class="nav-quick-btn" onclick="quickNav(\''+encodeURIComponent(p.q)+'\')">'
+      +'<div class="nav-quick-icon">'+p.icon+'</div>'
+      +'<div class="nav-quick-name">'+p.name+'</div>'
+      +'<div class="nav-quick-sub">'+p.sub+'</div>'
+      +'</div>';
+  }).join('');
+}
+function quickNav(enc){
+  var q=decodeURIComponent(enc);
+  var url='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(q)+'&travelmode='+navMode;
+  window.open(url,'_blank');
+}
+function renderNavModes(){
+  document.getElementById('navModeRow').innerHTML=NAV_MODES.map(function(m){
+    return '<button class="nav-mode-btn'+(m.id===navMode?' active':'')+'" onclick="setNavMode(\''+m.id+'\'">'+m.label+'</button>';
+  }).join('');
+}
+function setNavMode(mode){navMode=mode;renderNavModes();}
+function swapNav(){
+  var f=document.getElementById('navFrom').value;
+  var t=document.getElementById('navTo').value;
+  document.getElementById('navFrom').value=t;
+  document.getElementById('navTo').value=f;
+}
+function doNav(){
+  var from=document.getElementById('navFrom').value.trim();
+  var to=document.getElementById('navTo').value.trim();
+  if(!to){showToast('목적지를 입력해주세요');return;}
+  var url='https://www.google.com/maps/dir/?api=1'+(from?'&origin='+encodeURIComponent(from):'')+'&destination='+encodeURIComponent(to)+'&travelmode='+navMode;
+  window.open(url,'_blank');
+}
+function doNavCurrent(){
+  var to=document.getElementById('navTo').value.trim();
+  if(!to){showToast('목적지를 입력해주세요');return;}
+  var url='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(to)+'&travelmode='+navMode;
+  window.open(url,'_blank');
+}
+
+var STATIONS=[
+  {jp:'東京',kr:'도쿄',color:'#E53935',tags:['환승','신칸센'],lat:35.6812,lng:139.7671},
+  {jp:'有楽町',kr:'유라쿠초',color:'#4CAF50',tags:['쇼핑'],lat:35.6754,lng:139.7631},
+  {jp:'新橋',kr:'신바시',color:'#FF9800',tags:['맛집','환승'],lat:35.6663,lng:139.7581},
+  {jp:'浜松町',kr:'하마마쓰초',color:'#4CAF50',tags:['관광'],lat:35.6553,lng:139.7566},
+  {jp:'品川',kr:'시나가와',color:'#E53935',tags:['환승','신칸센'],lat:35.6284,lng:139.7387},
+  {jp:'大崎',kr:'오사키',color:'#9C27B0',tags:['환승'],lat:35.6197,lng:139.7283},
+  {jp:'五反田',kr:'고탄다',color:'#FF9800',tags:['맛집'],lat:35.6259,lng:139.7234},
+  {jp:'目黒',kr:'메구로',color:'#4CAF50',tags:['관광','맛집'],lat:35.6333,lng:139.7156},
+  {jp:'恵比寿',kr:'에비스',color:'#4CAF50',tags:['관광','쇼핑'],lat:35.6467,lng:139.7101},
+  {jp:'渋谷',kr:'시부야',color:'#E53935',tags:['관광','쇼핑','환승'],lat:35.6580,lng:139.7016},
+  {jp:'原宿',kr:'하라주쿠',color:'#4CAF50',tags:['쇼핑','관광'],lat:35.6702,lng:139.7027},
+  {jp:'代々木',kr:'요요기',color:'#9E9E9E',tags:[],lat:35.6833,lng:139.7022},
+  {jp:'新宿',kr:'신주쿠',color:'#E53935',tags:['쇼핑','맛집','환승'],lat:35.6896,lng:139.7006},
+  {jp:'新大久保',kr:'신오쿠보',color:'#FF9800',tags:['맛집'],lat:35.7008,lng:139.7004},
+  {jp:'高田馬場',kr:'다카다노바바',color:'#9C27B0',tags:['환승'],lat:35.7123,lng:139.7037},
+  {jp:'池袋',kr:'이케부쿠로',color:'#E53935',tags:['쇼핑','맛집','환승'],lat:35.7295,lng:139.7109},
+  {jp:'巣鴨',kr:'스가모',color:'#FF9800',tags:['관광'],lat:35.7335,lng:139.7394},
+  {jp:'駒込',kr:'고마고메',color:'#4CAF50',tags:['관광'],lat:35.7361,lng:139.7486},
+  {jp:'田端',kr:'다바타',color:'#9C27B0',tags:['환승'],lat:35.7381,lng:139.7609},
+  {jp:'上野',kr:'우에노',color:'#4CAF50',tags:['관광','환승'],lat:35.7141,lng:139.7774},
+  {jp:'御徒町',kr:'오카치마치',color:'#FF9800',tags:['쇼핑','맛집'],lat:35.7078,lng:139.7745},
+  {jp:'秋葉原',kr:'아키하바라',color:'#2196F3',tags:['쇼핑','환승'],lat:35.6984,lng:139.7731},
+  {jp:'神田',kr:'간다',color:'#9E9E9E',tags:[],lat:35.6914,lng:139.7706},
+];
+var stationFilter='';
+function filterStations(){stationFilter=document.getElementById('stationSearch').value;renderStationList();}
+function renderStationList(){
+  var list=STATIONS.filter(function(s){
+    if(!stationFilter) return true;
+    var q=stationFilter.toLowerCase();
+    return s.kr.indexOf(stationFilter)>=0||s.jp.indexOf(stationFilter)>=0||q===s.kr.toLowerCase();
+  });
+  document.getElementById('stationListWrap').innerHTML=list.map(function(s){
+    var tagHtml=s.tags.map(function(t){
+      var tc={'환승':'#9C27B0','관광':'#4CAF50','쇼핑':'#2196F3','맛집':'#FF9800','신칸센':'#E53935'}[t]||'#9E9E9E';
+      return '<span class="si-tag" style="background:'+tc+'22;color:'+tc+'">'+t+'</span>';
+    }).join('');
+    return '<div class="station-item">'
+      +'<div class="si-left"><div class="si-dot" style="background:'+s.color+'"></div>'
+      +'<div class="si-info"><div class="si-name-jp">'+s.jp+'</div><div class="si-name-kr">'+s.kr+'역</div>'
+      +(tagHtml?'<div class="si-tags">'+tagHtml+'</div>':'')+'</div></div>'
+      +'<div class="si-btns">'
+      +'<button class="si-btn map" onclick="stMap('+s.lat+','+s.lng+',\''+encodeURIComponent(s.jp)+'\')">📍</button>'
+      +'<button class="si-btn go" onclick="stNav('+s.lat+','+s.lng+',\'walking\')">🚶</button>'
+      +'<button class="si-btn transit" onclick="stNav('+s.lat+','+s.lng+',\'transit\')">🚇</button>'
+      +'</div></div>';
+  }).join('');
+}
+function stMap(lat,lng,enc){window.open('https://www.google.com/maps/search/'+decodeURIComponent(enc)+'/@'+lat+','+lng+',16z','_blank');}
+function stNav(lat,lng,mode){window.open('https://www.google.com/maps/dir/?api=1&destination='+lat+','+lng+'&travelmode='+mode,'_blank');}
+
+// ── 학습 ──────────────────────────────────────────────
+function showLearnTab(name,btn){
+  document.querySelectorAll('.learn-section').forEach(function(s){s.classList.remove('active')});
+  document.querySelectorAll('.learn-tab-btn').forEach(function(b){b.classList.remove('active')});
+  document.getElementById('ls-'+name).classList.add('active');
+  if(btn) btn.classList.add('active');
+}
+
+// 오늘의 단어
+var TODAY_WORDS=[
+  {jp:'ありがとう',rom:'arigatou',krp:'아리가토',mean:'감사합니다'},
+  {jp:'すみません',rom:'sumimasen',krp:'스미마셍',mean:'실례합니다'},
+  {jp:'おいしい',rom:'oishii',krp:'오이시이',mean:'맛있다'},
+  {jp:'かわいい',rom:'kawaii',krp:'카와이이',mean:'귀엽다'},
+  {jp:'たのしい',rom:'tanoshii',krp:'타노시이',mean:'즐겁다'},
+  {jp:'さくら',rom:'sakura',krp:'사쿠라',mean:'벚꽃'},
+  {jp:'でんしゃ',rom:'densha',krp:'덴샤',mean:'전철'},
+  {jp:'おみやげ',rom:'omiyage',krp:'오미야게',mean:'기념품'},
+  {jp:'まち',rom:'machi',krp:'마치',mean:'거리/마을'},
+  {jp:'たべもの',rom:'tabemono',krp:'타베모노',mean:'음식'},
+  {jp:'りょかん',rom:'ryokan',krp:'료칸',mean:'일본 전통 여관'},
+  {jp:'はなみ',rom:'hanami',krp:'하나미',mean:'꽃구경(벚꽃놀이)'},
+  {jp:'まつり',rom:'matsuri',krp:'마츠리',mean:'축제'},
+  {jp:'おんせん',rom:'onsen',krp:'온센',mean:'온천'},
+];
+var todayWord=null;
+function initTodayWord(){
+  var idx=Math.floor(Date.now()/86400000)%TODAY_WORDS.length;
+  todayWord=TODAY_WORDS[idx];
+  document.getElementById('todayJP').textContent=todayWord.jp;
+  document.getElementById('todayInfo').textContent=todayWord.rom+' · '+todayWord.krp+' · 의미: '+todayWord.mean;
+}
+function speakWord(){if(todayWord) speak(todayWord.jp);}
+
+// 히라가나/카타카나 표
+var HIRAGANA=[
+  ['あ','い','う','え','お'],['か','き','く','け','こ'],['さ','し','す','せ','そ'],
+  ['た','ち','つ','て','と'],['な','に','ぬ','ね','の'],['は','ひ','ふ','へ','ほ'],
+  ['ま','み','む','め','も'],['や','','ゆ','','よ'],['ら','り','る','れ','ろ'],
+  ['わ','','を','','ん'],
+];
+var KATAKANA=[
+  ['ア','イ','ウ','エ','オ'],['カ','キ','ク','ケ','コ'],['サ','シ','ス','セ','ソ'],
+  ['タ','チ','ツ','テ','ト'],['ナ','ニ','ヌ','ネ','ノ'],['ハ','ヒ','フ','ヘ','ホ'],
+  ['マ','ミ','ム','メ','モ'],['ヤ','','ユ','','ヨ'],['ラ','リ','ル','レ','ロ'],
+  ['ワ','','ヲ','','ン'],
+];
+var ROM=[
+  ['a','i','u','e','o'],['ka','ki','ku','ke','ko'],['sa','shi','su','se','so'],
+  ['ta','chi','tsu','te','to'],['na','ni','nu','ne','no'],['ha','hi','fu','he','ho'],
+  ['ma','mi','mu','me','mo'],['ya','','yu','','yo'],['ra','ri','ru','re','ro'],
+  ['wa','','wo','','n'],
+];
+var VOWELS=['a','i','u','e','o'];
+var KANA_TIPS={
+  hiragana:'히라가나는 일본 고유의 표음문자예요. 46자로 이루어져 있으며 주로 일본어 단어와 문법 요소를 표기해요. 외우는 팁: あ행부터 순서대로 노래처럼 외우면 빨라요!',
+  katakana:'카타카나는 주로 외래어·외국인 이름을 표기할 때 써요. 히라가나와 발음은 같지만 글자 모양이 달라요. 예: コーヒー(커피), ピザ(피자)',
+};
+var kanaType='hiragana';
+function showKana(type,btn){
+  kanaType=type;
+  document.querySelectorAll('.kana-tab-btn').forEach(function(b){b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
+  renderKanaTable();
+}
+function renderKanaTable(){
+  document.getElementById('kanaTip').textContent=KANA_TIPS[kanaType];
+  var data=kanaType==='hiragana'?HIRAGANA:KATAKANA;
+  var head='<tr><th></th>'+VOWELS.map(function(v){return '<th>'+v+'</th>';}).join('')+'</tr>';
+  var rows=['あ行','か行','さ行','た行','な行','は行','ま行','や行','ら行','わ行'];
+  var body=data.map(function(row,ri){
+    return '<tr><th>'+rows[ri]+'</th>'+row.map(function(ch,ci){
+      if(!ch) return '<td style="background:#f8f8f8"></td>';
+      return '<td onclick="speak(\''+ch+'\')">'
+        +'<span class="kana-cell-jp">'+ch+'</span>'
+        +'<span class="kana-cell-rom">'+ROM[ri][ci]+'</span>'
+        +'</td>';
+    }).join('')+'</tr>';
+  }).join('');
+  document.getElementById('kanaTable').innerHTML=head+body;
+}
+
+// 플래시카드
+var FLASH_SETS={
+  n5words:[
+    {front:'食べる',back:'타베루 — 먹다',hint:'N5 동사',cat:'동사'},
+    {front:'飲む',back:'노무 — 마시다',hint:'N5 동사',cat:'동사'},
+    {front:'行く',back:'이쿠 — 가다',hint:'N5 동사',cat:'동사'},
+    {front:'来る',back:'쿠루 — 오다',hint:'N5 동사',cat:'동사'},
+    {front:'見る',back:'미루 — 보다',hint:'N5 동사',cat:'동사'},
+    {front:'買う',back:'카우 — 사다',hint:'N5 동사',cat:'동사'},
+    {front:'大きい',back:'오키이 — 크다',hint:'N5 형용사',cat:'형용사'},
+    {front:'小さい',back:'치이사이 — 작다',hint:'N5 형용사',cat:'형용사'},
+    {front:'高い',back:'타카이 — 비싸다/높다',hint:'N5 형용사',cat:'형용사'},
+    {front:'安い',back:'야스이 — 싸다',hint:'N5 형용사',cat:'형용사'},
+    {front:'おいしい',back:'오이시이 — 맛있다',hint:'N5 형용사',cat:'형용사'},
+    {front:'新しい',back:'아타라시이 — 새롭다',hint:'N5 형용사',cat:'형용사'},
+    {front:'駅',back:'에키 — 역',hint:'N5 명사',cat:'명사'},
+    {front:'電車',back:'덴샤 — 전철',hint:'N5 명사',cat:'명사'},
+    {front:'学校',back:'각코 — 학교',hint:'N5 명사',cat:'명사'},
+    {front:'友達',back:'토모다치 — 친구',hint:'N5 명사',cat:'명사'},
+    {front:'今日',back:'쿄 — 오늘',hint:'N5 시간',cat:'시간'},
+    {front:'明日',back:'아시타 — 내일',hint:'N5 시간',cat:'시간'},
+    {front:'昨日',back:'키노 — 어제',hint:'N5 시간',cat:'시간'},
+    {front:'今',back:'이마 — 지금',hint:'N5 시간',cat:'시간'},
+  ],
+  travel:[
+    {front:'ありがとう',back:'아리가토 — 감사합니다',hint:'기본 인사'},
+    {front:'すみません',back:'스미마셍 — 저기요/실례합니다',hint:'기본 인사'},
+    {front:'いくら？',back:'이쿠라? — 얼마예요?',hint:'쇼핑'},
+    {front:'どこ？',back:'도코? — 어디예요?',hint:'길찾기'},
+    {front:'ください',back:'쿠다사이 — 주세요',hint:'쇼핑/식당'},
+    {front:'おいしい',back:'오이시이 — 맛있다',hint:'식당'},
+    {front:'えき',back:'에키 — 역',hint:'교통'},
+    {front:'トイレ',back:'토이레 — 화장실',hint:'필수'},
+    {front:'おかいけい',back:'오카이케이 — 계산서',hint:'식당'},
+    {front:'めんぜい',back:'멘제이 — 면세',hint:'쇼핑'},
+    {front:'おてあらい',back:'오테아라이 — 화장실 (정중)',hint:'필수'},
+    {front:'きっぷ',back:'킷푸 — 표/티켓',hint:'교통'},
+  ],
+  hiragana:[
+    {front:'あ',back:'a — 아',hint:'히라가나 모음'},
+    {front:'い',back:'i — 이',hint:'히라가나 모음'},
+    {front:'う',back:'u — 우',hint:'히라가나 모음'},
+    {front:'え',back:'e — 에',hint:'히라가나 모음'},
+    {front:'お',back:'o — 오',hint:'히라가나 모음'},
+    {front:'か',back:'ka — 카',hint:'히라가나 か행'},
+    {front:'き',back:'ki — 키',hint:'히라가나 か행'},
+    {front:'く',back:'ku — 쿠',hint:'히라가나 か행'},
+    {front:'さ',back:'sa — 사',hint:'히라가나 さ행'},
+    {front:'し',back:'shi — 시',hint:'히라가나 さ행'},
+    {front:'た',back:'ta — 타',hint:'히라가나 た행'},
+    {front:'な',back:'na — 나',hint:'히라가나 な행'},
+    {front:'は',back:'ha — 하',hint:'히라가나 は행'},
+  ],
+};
+var flashLevel='travel', flashDeck=[], flashIdx=0, flashFlipped=false, flashKnow=0, flashDunno=0;
+function renderFlashLevels(){
+  document.getElementById('flashLevelRow').innerHTML=[
+    {id:'hiragana',label:'🔤 히라가나'},
+    {id:'travel',label:'✈️ 여행회화'},
+    {id:'n5words',label:'📚 JLPT N5'},
+  ].map(function(l){
+    return '<button class="flash-lv-btn'+(l.id===flashLevel?' active':'')+'" onclick="setFlashLevel(\''+l.id+'\')">'+l.label+'</button>';
+  }).join('');
+}
+function setFlashLevel(lv){
+  flashLevel=lv; flashIdx=0; flashFlipped=false; flashKnow=0; flashDunno=0;
+  flashDeck=FLASH_SETS[lv].slice().sort(function(){return Math.random()-.5});
+  renderFlashLevels(); updateFlashScore(); showFlashCard();
+}
+function updateFlashScore(){
+  document.getElementById('flashKnow').textContent=flashKnow;
+  document.getElementById('flashDunno').textContent=flashDunno;
+  document.getElementById('flashLeft').textContent=Math.max(0,flashDeck.length-flashIdx);
+}
+function showFlashCard(){
+  updateFlashScore();
+  if(flashIdx>=flashDeck.length){
+    document.getElementById('flashFront').textContent='🎉';
+    document.getElementById('flashHintTxt').textContent='완료! ✅ '+flashKnow+' / ❌ '+flashDunno;
+    document.getElementById('flashBack').classList.remove('show');
+    document.getElementById('flashBtns').style.display='none';
+    document.getElementById('flashProgress').textContent='레벨을 다시 선택하면 처음부터 시작해요';
+    return;
+  }
+  var card=flashDeck[flashIdx];
+  document.getElementById('flashFront').textContent=card.front;
+  document.getElementById('flashHintTxt').textContent=card.hint+' · 눌러서 확인 🔊';
+  document.getElementById('flashBack').textContent=card.back;
+  document.getElementById('flashBack').classList.remove('show');
+  document.getElementById('flashBtns').style.display='none';
+  flashFlipped=false;
+  document.getElementById('flashProgress').textContent=(flashIdx+1)+' / '+flashDeck.length+' 번째 카드';
+}
+function flipCard(){
+  if(flashFlipped) return;
+  flashFlipped=true;
+  document.getElementById('flashBack').classList.add('show');
+  document.getElementById('flashBtns').style.display='flex';
+  document.getElementById('flashHintTxt').style.display='none';
+  speak(flashDeck[flashIdx].front);
+}
+function answerCard(know){
+  if(know) flashKnow++; else flashDunno++;
+  flashIdx++;
+  document.getElementById('flashHintTxt').style.display='block';
+  showFlashCard();
+}
+
+// 문법 카드
+var GRAMMAR=[
+  {title:'~は ~です',desc:'~은/는 ~입니다 (기본 서술)',examples:[
+    {jp:'これはりんごです',rom:'kore wa ringo desu',krp:'코레 와 린고 데스',kr:'이것은 사과입니다'},
+    {jp:'わたしは学生です',rom:'watashi wa gakusei desu',krp:'와타시 와 각세이 데스',kr:'저는 학생입니다'},
+  ]},
+  {title:'~を ください',desc:'~을/를 주세요 (쇼핑·식당 필수)',examples:[
+    {jp:'みずをください',rom:'mizu wo kudasai',krp:'미즈 오 쿠다사이',kr:'물을 주세요'},
+    {jp:'これをください',rom:'kore wo kudasai',krp:'코레 오 쿠다사이',kr:'이것을 주세요'},
+  ]},
+  {title:'~はどこですか？',desc:'~은/는 어디예요? (길찾기 필수)',examples:[
+    {jp:'トイレはどこですか？',rom:'toire wa doko desu ka',krp:'토이레 와 도코 데스까',kr:'화장실이 어디예요?'},
+    {jp:'えきはどこですか？',rom:'eki wa doko desu ka',krp:'에키 와 도코 데스까',kr:'역이 어디예요?'},
+  ]},
+  {title:'~はいくらですか？',desc:'~은/는 얼마예요? (쇼핑 필수)',examples:[
+    {jp:'これはいくらですか？',rom:'kore wa ikura desu ka',krp:'코레 와 이쿠라 데스까',kr:'이것은 얼마예요?'},
+    {jp:'このかばんはいくらですか？',rom:'kono kaban wa ikura desu ka',krp:'코노 카반 와 이쿠라 데스까',kr:'이 가방은 얼마예요?'},
+  ]},
+  {title:'~ができますか？',desc:'~을/를 할 수 있나요? (확인할 때)',examples:[
+    {jp:'えいごができますか？',rom:'eigo ga dekimasu ka',krp:'에이고 가 데키마스까',kr:'영어를 할 수 있나요?'},
+    {jp:'カードができますか？',rom:'kaado ga dekimasu ka',krp:'카도 가 데키마스까',kr:'카드 결제 가능한가요?'},
+  ]},
+  {title:'~をおねがいします',desc:'~을/를 부탁드립니다 (정중한 요청)',examples:[
+    {jp:'チェックインをおねがいします',rom:'chekkuin wo onegai shimasu',krp:'체꾸인 오 오네가이 시마스',kr:'체크인 부탁드립니다'},
+    {jp:'おかいけいをおねがいします',rom:'okaikei wo onegai shimasu',krp:'오카이케이 오 오네가이 시마스',kr:'계산 부탁드립니다'},
+  ]},
+  {title:'~ていただけますか？',desc:'~해 주실 수 있으시겠어요? (최정중)',examples:[
+    {jp:'ゆっくり話していただけますか？',rom:'yukkuri hanashite itadakemasu ka',krp:'유쿠리 하나시테 이타다케마스까',kr:'천천히 말씀해 주실 수 있나요?'},
+    {jp:'もういちどいっていただけますか？',rom:'mou ichido itte itadakemasu ka',krp:'모우 이치도 잇테 이타다케마스까',kr:'한 번 더 말씀해 주실 수 있나요?'},
+  ]},
+];
+function renderGrammar(){
+  document.getElementById('grammarList').innerHTML=GRAMMAR.map(function(g,gi){
+    var exHtml=g.examples.map(function(ex){
+      return '<div class="grammar-ex">'
+        +'<div class="grammar-ex-jp"><span style="font-family:\'Noto Sans JP\',sans-serif">'+ex.jp+'</span>'
+        +'<span onclick="speak(\''+ex.jp+'\')" style="cursor:pointer;color:var(--pink2);font-size:16px">🔊</span></div>'
+        +'<div class="grammar-ex-rom">'+ex.rom+'</div>'
+        +'<div class="grammar-ex-kr" style="font-size:11px;color:var(--hint)">한국어 발음: '+ex.krp+'</div>'
+        +'<div class="grammar-ex-kr">→ '+ex.kr+'</div>'
+        +'</div>';
+    }).join('');
+    return '<div class="grammar-card" onclick="toggleGrammar('+gi+')">'
+      +'<div class="grammar-title">'+g.title+'</div>'
+      +'<div class="grammar-desc" style="font-size:12px;color:var(--sub)">'+g.desc+'</div>'
+      +'<div class="grammar-detail" id="gd-'+gi+'">'+exHtml+'</div>'
+      +'</div>';
+  }).join('');
+}
+function toggleGrammar(i){document.getElementById('gd-'+i).classList.toggle('show');}
+
+// AI 학습
+var currentMode='translate';
+var MODE_PROMPTS={
+  translate:function(q){return '"'+q+'"를 일본어로 알려주세요.\n\n일본어:\n발음(로마자):\n한국어 발음:\n\n설명: (한국어)';},
+  write:function(q){return '"'+q+'"를 일본어로 쓰는 법을 가르쳐주세요. 한국어로.';},
+  hiragana:function(q){return '히라가나 질문: "'+q+'". 발음, 쓰는 법, 외우는 팁을 한국어로.';},
+  word:function(q){return '"'+q+'" 일본어 단어: 뜻, 발음(로마자+한국어), 예문 2개. 한국어로.';},
+  grammar:function(q){return '"'+q+'" 일본어 문법을 한국어로 쉽게 설명. 형태, 사용법, 예문 2개.';},
+};
+var MODE_PH={translate:"예: '감사합니다'를 일본어로?",write:"예: あ 쓰는 법 알려줘",hiragana:"예: 히라가나 외우는 팁",word:"예: 사쿠라의 뜻과 사용법",grammar:"예: ~て형 사용법"};
+function setMode(btn,mode){
+  currentMode=mode;
+  document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  document.getElementById('learnInput').placeholder=MODE_PH[mode]||'';
+}
+async function doLearn(){
+  var q=document.getElementById('learnInput').value.trim(); if(!q) return;
+  setLoad('learnBtn','learnSpinner','learnBtnText','생각 중...',true);
+  document.getElementById('learnError').classList.remove('show');
+  document.getElementById('learnResult').classList.remove('show');
+  try{
+    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,
+        messages:[{role:'user',content:MODE_PROMPTS[currentMode](q)}]})});
+    var data=await res.json();
+    var el=document.getElementById('learnResult');
+    el.textContent=data.content.map(function(i){return i.text||''}).join('');
+    el.classList.add('show');
+  }catch(e){showErr('learnError','오류. 다시 시도해주세요.');}
+  setLoad('learnBtn','learnSpinner','learnBtnText','✨ 질문하기',false);
+}
+
+// ── 체크리스트 ──────────────────────────────────────────────
+var DEFAULT_CHECKLIST=[
+  {section:'📋 서류 · 예약',items:['여권 유효기간 확인 (6개월 이상)','항공권 예약 확인','숙소 예약 확인','여행자 보험 가입']},
+  {section:'💳 금융 · 통신',items:['엔화 현금 환전','트래블월렛 / 트래블로그 카드 준비','일본 유심 / 포켓와이파이 예약','한국 카드사 해외 결제 한도 확인']},
+  {section:'📱 앱 · 준비',items:['구글맵 도쿄 오프라인 지도 다운로드','파파고 / 구글 번역 앱 설치','Suica 앱 설치 (아이폰 가능)','스카이스캐너로 귀국편 재확인']},
+  {section:'🎒 짐 준비',items:['편한 운동화 (하루 2만보 기준)','상비약 (감기약, 지사제 등)','비 대비 접이식 우산','보조배터리 (기내 반입용)','계절별 의류 준비']},
+  {section:'🗺️ 현지 준비',items:['숙소 주소 일본어로 저장','숙소 체크인 시간 확인','공항→숙소 이동 방법 파악','긴급 연락처 저장 (경찰110/구급119)']},
+];
+function loadChecklist(){try{var s=localStorage.getItem('jp_checklist_v2');return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}catch(e){return JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}}
+function saveChecklist(){try{localStorage.setItem('jp_checklist_v2',JSON.stringify(CHECKLIST));}catch(e){}}
+var CHECKLIST=loadChecklist();
+var checkState=JSON.parse(localStorage.getItem('jp_checks')||'{}');
+function saveCheckState(){try{localStorage.setItem('jp_checks',JSON.stringify(checkState));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function renderChecklist(){
+  var total=0,done=0,html='';
+  CHECKLIST.forEach(function(sec,si){
+    html+='<div class="check-section">'
+      +'<div class="check-section-header">'
+      +'<div class="check-section-title">'+esc(sec.section)+'</div>'
+      +'<button class="check-section-del" onclick="deleteSection('+si+')">카테고리 삭제</button>'
+      +'</div>'
+      +'<div class="check-add-row">'
+      +'<input class="check-add-input" type="text" id="ci-add-'+si+'" placeholder="항목 추가...">'
+      +'<button class="check-add-btn" onclick="addItem('+si+')">+</button>'
+      +'</div>';
+    sec.items.forEach(function(item,ii){
+      var key=si+'-'+ii,isDone=!!checkState[key];
+      total++; if(isDone) done++;
+      html+='<div class="check-item'+(isDone?' done':'')+'">'
+        +'<div class="check-box" onclick="toggleCheck('+si+','+ii+')"><span class="check-icon">&#10003;</span></div>'
+        +'<div class="check-text" onclick="toggleCheck('+si+','+ii+')">'+esc(item)+'</div>'
+        +'<button class="check-del" onclick="deleteItem('+si+','+ii+')">&#10005;</button>'
+        +'</div>';
+    });
+    html+='</div>';
+  });
+  if(!CHECKLIST.length) html='<div style="text-align:center;padding:32px 0;color:var(--hint);font-size:13px">없어요</div>';
+  document.getElementById('checklistContent').innerHTML=html;
+  CHECKLIST.forEach(function(sec,si){
+    var el=document.getElementById('ci-add-'+si);
+    if(el){
+      (function(idx){
+        el.addEventListener('keydown',function(e){if(e.key==='Enter')addItem(idx);});
+      })(si);
+    }
+  });
+  document.getElementById('progressCount').textContent=done+' / '+total;
+  document.getElementById('progressBar').style.width=(total?Math.round(done/total*100):0)+'%';
+}
+
+function toggleCheck(si,ii){var key=si+'-'+ii;checkState[key]=!checkState[key];saveCheckState();renderChecklist();}
+function addItem(si){
+  var input=document.getElementById('ci-add-'+si);
+  var val=input.value.trim(); if(!val) return;
+  CHECKLIST[si].items.push(val); saveChecklist(); input.value='';
+  renderChecklist(); showToast('항목이 추가됐어요 ✓');
+}
+function deleteItem(si,ii){
+  CHECKLIST[si].items.splice(ii,1);
+  var newState={};
+  Object.keys(checkState).forEach(function(k){
+    var p=k.split('-'),ks=parseInt(p[0]),ki=parseInt(p[1]);
+    if(ks===si){if(ki<ii)newState[k]=checkState[k];else if(ki>ii)newState[ks+'-'+(ki-1)]=checkState[k];}
+    else newState[k]=checkState[k];
+  });
+  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist();
+}
+function deleteSection(si){
+  if(!confirm('"'+CHECKLIST[si].section+'" 카테고리를 삭제할까요?')) return;
+  CHECKLIST.splice(si,1);
+  var newState={};
+  Object.keys(checkState).forEach(function(k){
+    var p=k.split('-'),ks=parseInt(p[0]),ki=p[1];
+    if(ks<si)newState[k]=checkState[k];
+    else if(ks>si)newState[(ks-1)+'-'+ki]=checkState[k];
+  });
+  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist(); showToast('카테고리가 삭제됐어요');
+}
+function addSection(){
+  var input=document.getElementById('newSectionInput');
+  var val=input.value.trim(); if(!val) return;
+  CHECKLIST.push({section:val,items:[]}); saveChecklist(); input.value='';
+  renderChecklist(); showToast('카테고리가 추가됐어요 ✓');
+}
+function resetAllChecks(){
+  if(!confirm('체크 표시를 모두 초기화할까요?\n(항목은 유지됩니다)')) return;
+  checkState={}; saveCheckState(); renderChecklist(); showToast('체크가 초기화됐어요');
+}
+
+// ── 유틸 ──────────────────────────────────────────────
+function speak(text){
+  if(typeof text!=='string') text=decodeURIComponent(text);
+  var u=new SpeechSynthesisUtterance(text); u.lang='ja-JP'; u.rate=0.85;
+  window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+}
+function setLoad(btnId,spId,txtId,label,on){
+  document.getElementById(btnId).disabled=on;
+  document.getElementById(spId).style.display=on?'block':'none';
+  document.getElementById(txtId).textContent=label;
+}
+function showErr(id,msg){var e=document.getElementById(id);e.textContent=msg;e.classList.add('show');}
+function showToast(msg){
+  var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show')},2200);
+}
+document.getElementById('inputText').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doTranslate();}});
+document.getElementById('learnInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doLearn();}});
+
+// ── 초기화 ──────────────────────────────────────────────
+renderCatTabs(); renderPhrases();
+renderNavQuick(); renderNavModes(); renderStationList();
+renderKanaTable(); renderGrammar();
+renderFlashLevels(); setFlashLevel('travel');
+renderChecklist(); renderQuickAmounts();
+initTodayWord(); fetchRate(); fetchWeather();
+</script>
+</body>
+</html>
