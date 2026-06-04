@@ -17,7 +17,7 @@
 }
 html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--txt);-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 .app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--bg)}
- 
+
 /* HEADER */
 .header{background:linear-gradient(135deg,#e91e8c 0%,#f06292 55%,#f48fb1 100%);padding:48px 20px 20px;position:relative;overflow:hidden}
 .hb1{position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.09);right:-35px;top:-35px;pointer-events:none}
@@ -25,50 +25,50 @@ html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif
 .header h1{color:#fff;font-size:21px;font-weight:700;position:relative}
 .header p{color:rgba(255,255,255,.72);font-size:11px;margin-top:3px;position:relative}
 .hclock{position:absolute;top:13px;right:16px;color:rgba(255,255,255,.92);font-size:12.5px;font-weight:700;letter-spacing:.4px}
- 
+
 /* TABS */
 .tab-bar{display:flex;background:var(--sur);border-bottom:1.5px solid var(--bor);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(233,30,140,.07);overflow-x:auto;scrollbar-width:none}
 .tab-bar::-webkit-scrollbar{display:none}
 .tab-btn{flex-shrink:0;padding:11px 9px 9px;border:none;background:transparent;cursor:pointer;font-size:9px;font-family:'Noto Sans KR',sans-serif;color:var(--hint);display:flex;flex-direction:column;align-items:center;gap:3px;border-bottom:2.5px solid transparent;white-space:nowrap;min-width:54px;transition:color .2s}
 .tab-btn svg{width:19px;height:19px}
 .tab-btn.active{color:var(--pink);border-bottom-color:var(--pink)}
- 
+
 /* SECTIONS */
 .section{display:none;padding:14px}
 .section.active{display:block}
- 
+
 /* CARD */
 .card{background:var(--sur);border-radius:var(--r);padding:15px;margin-bottom:12px;box-shadow:var(--sh);border:1px solid var(--bor)}
 .sec-label{font-size:10px;font-weight:700;color:var(--hint);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:9px}
- 
+
 /* BTNS */
 .big-btn{width:100%;padding:14px;background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border:none;border-radius:var(--r);font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px;box-shadow:0 4px 15px rgba(233,30,140,.28);transition:transform .15s}
 .big-btn:active{transform:scale(.98)}
 .big-btn:disabled{opacity:.55}
- 
+
 /* INPUTS */
 textarea,select{width:100%;border:1.5px solid var(--bor);border-radius:var(--rs);padding:11px 13px;font-size:15px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);resize:none;outline:none;transition:border-color .2s;-webkit-appearance:none}
 textarea:focus,select:focus{border-color:var(--pink);background:#fff}
 input[type=number],input[type=text]{border:1.5px solid var(--bor);border-radius:var(--rs);padding:11px 13px;font-size:15px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;transition:border-color .2s;-webkit-appearance:none}
 input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);background:#fff}
- 
+
 /* RESULT */
 .result-card{background:linear-gradient(135deg,#fff0f6,#fff);border-radius:var(--r);padding:16px;margin-bottom:12px;display:none;box-shadow:var(--sh2);border:1.5px solid var(--pink2)}
 .result-card.show{display:block}
-.jp-text{font-family:'Noto Sans JP',sans-serif;font-size:26px;font-weight:500;color:var(--txt);margin-bottom:4px;line-height:1.5}
+.jp-text,.noto-jp{font-family:'Noto Sans JP',sans-serif;}.jp-text{font-size:26px;font-weight:500;color:var(--txt);margin-bottom:4px;line-height:1.5}
 .rom-row{font-size:13px;color:var(--pink);font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:5px}
 .kr-pron{font-size:12px;color:var(--sub);margin-bottom:7px}
 .natural-text{font-size:13px;color:var(--sub);line-height:1.6;padding-top:9px;border-top:1px solid var(--bor);margin-top:7px}
 .action-row{display:flex;gap:8px;margin-top:11px}
 .action-btn{flex:1;padding:9px;border:1.5px solid var(--bor);border-radius:var(--rs);background:#fff;color:var(--txt);font-size:12px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px}
 .action-btn:active{background:var(--pink3)}
- 
+
 /* CAMERA */
 .cam-upload{border:2px dashed var(--pink2);border-radius:var(--r);padding:28px 20px;text-align:center;cursor:pointer;margin-bottom:12px;background:var(--pink4)}
 #camInput{display:none}
 #camPreview{width:100%;border-radius:var(--rs);margin-bottom:10px;display:none}
 #camPreview.show{display:block}
- 
+
 /* PHRASES */
 .cat-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:9px;margin-bottom:12px;scrollbar-width:none}
 .cat-tabs::-webkit-scrollbar{display:none}
@@ -82,8 +82,8 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .pi-kr{font-size:12px;color:var(--sub)}
 .pi-rom{font-size:11px;color:var(--pink);font-weight:700}
 .pi-krpron{font-size:11px;color:var(--hint)}
- 
- 
+
+
 /* EXCHANGE */
 .exch-hero{background:linear-gradient(135deg,#e91e8c,#ce93d8);border-radius:var(--r);padding:18px;margin-bottom:12px;color:#fff;box-shadow:var(--sh2)}
 .exch-input-wrap{display:flex;align-items:center;gap:8px;margin-bottom:8px}
@@ -105,7 +105,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .calc-result-label{font-size:13px;color:var(--sub)}
 .calc-result-val{font-size:16px;font-weight:700;color:var(--pink)}
 .calc-result-row.main .calc-result-val{font-size:24px}
- 
+
 /* WEATHER */
 .weather-hero{background:linear-gradient(135deg,#42a5f5,#26c6da);border-radius:var(--r);padding:18px;margin-bottom:12px;color:#fff;box-shadow:0 4px 18px rgba(66,165,245,.28)}
 .w-now-row{display:flex;align-items:center;gap:14px;margin-bottom:12px}
@@ -117,7 +117,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .w-stat:last-child{border-right:none}
 .w-stat-val{font-size:14px;font-weight:700}
 .w-stat-lbl{font-size:10px;opacity:.7;margin-top:2px}
- 
+
 .cal-nav-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .cal-title{font-size:15px;font-weight:700;color:var(--txt)}
 .cal-nav-btns{display:flex;gap:6px}
@@ -133,9 +133,9 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .cal-w-icon{font-size:17px;line-height:1;margin-bottom:1px}
 .cal-w-temp{font-size:9px;color:var(--sub);font-weight:600;line-height:1.3}
 .cal-w-rain{font-size:9px;color:#42a5f5;font-weight:600}
- 
+
 /* NAVIGATION (길찾기) */
- 
+
 .nav-input-wrap{display:flex;gap:8px;align-items:center;margin-bottom:8px}
 .nav-input{flex:1;padding:11px 13px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none}
 .nav-input:focus{border-color:var(--pink);background:#fff}
@@ -163,14 +163,14 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .si-btn.map{background:var(--pink3);color:var(--pink)}
 .si-btn.go{background:#e8f5e9;color:#2e7d32}
 .si-btn.transit{background:#e3f2fd;color:#1565c0}
- 
+
 /* LEARN */
 .learn-hero{background:linear-gradient(135deg,#ce93d8,#f48fb1);border-radius:var(--r);padding:15px;margin-bottom:12px;color:#fff;box-shadow:var(--sh2)}
 .today-lbl{font-size:10px;font-weight:700;opacity:.8;letter-spacing:1px;margin-bottom:5px}
 .today-jp{font-family:'Noto Sans JP',sans-serif;font-size:28px;font-weight:500;margin-bottom:2px}
 .today-info{font-size:12px;opacity:.85;line-height:1.5}
 .today-speak{position:absolute;top:15px;right:15px;font-size:22px;cursor:pointer;opacity:.85}
- 
+
 /* LEARN TABS */
 .learn-tab-row{display:flex;gap:5px;margin-bottom:12px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .learn-tab-row::-webkit-scrollbar{display:none}
@@ -178,7 +178,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .learn-tab-btn.active{background:linear-gradient(135deg,#ce93d8,#f48fb1);color:#fff;border-color:#ce93d8;box-shadow:0 3px 10px rgba(206,147,216,.3)}
 .learn-section{display:none}
 .learn-section.active{display:block}
- 
+
 /* HIRAGANA TABLE */
 .kana-table-wrap{overflow-x:auto;margin-bottom:12px}
 .kana-table{border-collapse:collapse;width:100%;min-width:300px}
@@ -191,7 +191,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .kana-tab-btn{flex:1;padding:8px 6px;border-radius:var(--rs);border:1.5px solid var(--bor);background:var(--sur);font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;text-align:center;transition:all .15s}
 .kana-tab-btn.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink)}
 .kana-tip{background:var(--pink4);border-radius:var(--rs);padding:10px 12px;font-size:12px;color:var(--sub);line-height:1.65;border:1px solid var(--bor);margin-bottom:8px}
- 
+
 /* FLASHCARD */
 .flash-level-row{display:flex;gap:5px;margin-bottom:10px;flex-wrap:wrap}
 .flash-lv-btn{padding:6px 12px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s}
@@ -209,7 +209,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .flash-btn:active{transform:scale(.97)}
 .flash-btn.know{background:linear-gradient(135deg,#4caf50,#81c784);color:#fff;box-shadow:0 3px 10px rgba(76,175,80,.25)}
 .flash-btn.dunno{background:linear-gradient(135deg,#f44336,#e57373);color:#fff;box-shadow:0 3px 10px rgba(244,67,54,.2)}
- 
+
 /* GRAMMAR */
 .grammar-list{display:flex;flex-direction:column;gap:8px}
 .grammar-card{background:var(--sur);border-radius:var(--r);padding:14px;box-shadow:var(--sh);border:1px solid var(--bor);cursor:pointer}
@@ -222,14 +222,14 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .grammar-ex-jp{font-family:'Noto Sans JP',sans-serif;font-size:15px;color:var(--txt);margin-bottom:2px;display:flex;align-items:center;justify-content:space-between}
 .grammar-ex-kr{font-size:12px;color:var(--sub)}
 .grammar-ex-rom{font-size:11px;color:var(--pink);font-weight:600;margin-top:1px}
- 
+
 /* AI LEARN */
 .mode-row{display:flex;gap:5px;margin-bottom:11px;flex-wrap:wrap}
 .mode-btn{padding:6px 11px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
 .mode-btn.active{background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border-color:var(--pink)}
 .learn-result{background:var(--pink4);border-radius:var(--rs);padding:13px;margin-top:9px;display:none;white-space:pre-wrap;font-size:13.5px;line-height:1.8;color:var(--txt);border:1px solid var(--bor)}
 .learn-result.show{display:block}
- 
+
 /* CHECKLIST */
 .progress-card{background:linear-gradient(135deg,var(--pink3),#f3e5f5);border-radius:var(--r);padding:15px;margin-bottom:12px;border:1px solid var(--bor)}
 .progress-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
@@ -262,7 +262,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .add-section-input{flex:1;padding:10px 12px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;-webkit-appearance:none}
 .add-section-input:focus{border-color:var(--pink);background:#fff}
 .add-section-btn{padding:10px 14px;border:none;border-radius:var(--rs);background:linear-gradient(135deg,#ce93d8,#f48fb1);color:#fff;font-size:13px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap}
- 
+
 /* TIPS */
 .tip-card{background:var(--sur);border-radius:var(--r);padding:15px;margin-bottom:11px;box-shadow:var(--sh);border:1px solid var(--bor)}
 .tip-header{display:flex;align-items:center;gap:9px;margin-bottom:11px}
@@ -273,11 +273,11 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .tip-list li:last-child{border-bottom:none;padding-bottom:0}
 .tip-bullet{color:var(--pink);font-size:15px;flex-shrink:0;line-height:1.4}
 .tip-em{color:var(--pink);font-weight:700}
- 
+
 /* MISC */
 .spinner{display:none;width:18px;height:18px;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .75s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
- 
+
 /* ONBOARDING */
 .onboard-overlay{position:fixed;inset:0;background:linear-gradient(135deg,#e91e8c,#f06292,#f48fb1);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
 .onboard-logo{font-size:56px;margin-bottom:16px;animation:floatAnim 2s ease-in-out infinite}
@@ -287,32 +287,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 .onboard-input{width:100%;padding:16px;border:none;border-radius:var(--r);font-size:18px;font-family:'Noto Sans KR',sans-serif;text-align:center;outline:none;background:#fff;color:var(--txt);margin-bottom:12px}
 .onboard-btn{width:100%;padding:16px;border:none;border-radius:var(--r);font-size:17px;font-weight:700;font-family:'Noto Sans KR',sans-serif;background:rgba(255,255,255,.25);color:#fff;cursor:pointer;border:2px solid rgba(255,255,255,.5)}
 .onboard-btn:active{background:rgba(255,255,255,.4)}
- 
-/* DDAY */
-.dday-hero{background:linear-gradient(135deg,#e91e8c,#ce93d8);border-radius:var(--r);padding:18px;margin-bottom:12px;color:#fff;box-shadow:var(--sh2);text-align:center}
-.dday-num{font-size:52px;font-weight:700;line-height:1;margin:8px 0}
-.dday-label{font-size:13px;opacity:.85}
-.dday-date-input{width:100%;padding:11px;border:none;border-radius:var(--rs);font-size:15px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:rgba(255,255,255,.9);outline:none;text-align:center;margin-top:12px}
- 
-/* FAVORITES */
-.fav-item{background:var(--sur);border-radius:var(--r);padding:13px 14px;margin-bottom:8px;box-shadow:var(--sh);border:1px solid var(--bor)}
-.fav-jp{font-family:'Noto Sans JP',sans-serif;font-size:18px;font-weight:500;color:var(--txt);margin-bottom:3px}
-.fav-rom{font-size:11px;color:var(--pink);font-weight:700;margin-bottom:2px}
-.fav-kr{font-size:12px;color:var(--sub)}
-.fav-actions{display:flex;gap:8px;margin-top:8px}
-.fav-btn{padding:7px 12px;border-radius:var(--rs);border:1.5px solid var(--bor);background:var(--sur);font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer}
-.fav-btn.del{color:#e53935;border-color:#ffcdd2}
-.fav-empty{text-align:center;padding:32px 0;color:var(--hint);font-size:13px}
- 
-/* MEMO */
-.memo-date-input{width:100%;padding:10px 12px;border:1.5px solid var(--bor);border-radius:var(--rs);font-size:14px;font-family:'Noto Sans KR',sans-serif;color:var(--txt);background:var(--pink4);outline:none;margin-bottom:8px}
-.memo-date-input:focus{border-color:var(--pink);background:#fff}
-.memo-item-row{background:var(--sur);border-radius:var(--rs);padding:12px 13px;margin-bottom:6px;box-shadow:var(--sh);border:1px solid var(--bor)}
-.memo-item-date{font-size:10px;font-weight:700;color:var(--pink);margin-bottom:4px;letter-spacing:.5px}
-.memo-item-text{font-size:13px;color:var(--txt);line-height:1.5}
-.memo-item-actions{display:flex;justify-content:flex-end;margin-top:6px}
-.memo-del-btn{padding:4px 10px;border-radius:20px;border:1.5px solid #ffcdd2;background:transparent;font-size:11px;color:#e53935;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
- 
+
 /* ROLEPLAY */
 .roleplay-scene-row{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
 .scene-btn{padding:7px 13px;border-radius:20px;border:1.5px solid var(--bor);background:var(--sur);font-size:11.5px;font-family:'Noto Sans KR',sans-serif;color:var(--sub);cursor:pointer;transition:all .15s;white-space:nowrap}
@@ -335,7 +310,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
 </head>
 <body>
 <div class="app">
- 
+
 <!-- 닉네임 온보딩 -->
 <div class="onboard-overlay" id="onboardOverlay">
   <div class="onboard-logo">🌸</div>
@@ -344,23 +319,20 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
   <input class="onboard-input" type="text" id="nicknameInput" placeholder="닉네임 입력 (예: 엄마, 홍길동)" maxlength="10">
   <button class="onboard-btn" onclick="setNickname()">시작하기 →</button>
 </div>
- 
+
 <div class="header">
   <div class="hb1"></div><div class="hb2"></div>
   <div class="hclock" id="tokyoClock">🗼 --:--</div>
   <h1 id="headerNick">🌸 도쿄 여행 도우미</h1>
   <p>번역 · 사진 · 회화 · 환율 · 날씨 · 길찾기 · 학습 · 체크리스트</p>
 </div>
- 
+
 <div class="tab-bar">
   <button class="tab-btn active" onclick="showTab('translate',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h12M9 3v2M7 19l5-11 5 11M6.4 17h9.2"/><path d="M21 21l-5-5m0 0A7 7 0 1 0 7 7"/></svg>번역
   </button>
   <button class="tab-btn" onclick="showTab('camera',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>사진
-  </button>
-  <button class="tab-btn" onclick="showTab('phrases',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>회화
   </button>
   <button class="tab-btn" onclick="showTab('exchange',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>환율
@@ -371,29 +343,14 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
   <button class="tab-btn" onclick="showTab('navi',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>길찾기
   </button>
-  <button class="tab-btn" onclick="showTab('learn',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>학습
-  </button>
   <button class="tab-btn" onclick="showTab('checklist',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>체크
   </button>
   <button class="tab-btn" onclick="showTab('tips',this)">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>팁
   </button>
-  <button class="tab-btn" onclick="showTab('dday',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>D-day
-  </button>
-  <button class="tab-btn" onclick="showTab('favorites',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>즐겨찾기
-  </button>
-  <button class="tab-btn" onclick="showTab('memo',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>코스메모
-  </button>
-  <button class="tab-btn" onclick="showTab('roleplay',this)">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>대화연습
-  </button>
 </div>
- 
+
 <!-- ① 번역 -->
 <div class="section active" id="tab-translate">
   <div class="card">
@@ -420,11 +377,11 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     <div class="action-row">
       <button class="action-btn" onclick="copyResult()">📋 복사</button>
       <button class="action-btn" onclick="shareResult()">🔗 공유</button>
-      <button class="action-btn" onclick="saveFav()" id="favBtn">⭐ 저장</button>
+
     </div>
   </div>
 </div>
- 
+
 <!-- ② 사진 번역 -->
 <div class="section" id="tab-camera">
   <div class="card">
@@ -444,14 +401,15 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     <div class="sec-label">번역 결과</div>
     <div id="camOutput" style="font-size:13.5px;line-height:1.8;white-space:pre-wrap;color:var(--txt)"></div>
   </div>
+
+  <!-- 자주 쓰는 문장 -->
+  <div class="card" style="margin-top:4px">
+    <div class="sec-label" style="margin-bottom:10px">📌 자주 쓰는 문장</div>
+    <div class="cat-tabs" id="phraseCatTabs"></div>
+    <div id="phraseItems"></div>
+  </div>
 </div>
- 
-<!-- ③ 회화 -->
-<div class="section" id="tab-phrases">
-  <div class="cat-tabs" id="catTabs"></div>
-  <div class="phrase-list" id="phraseList"></div>
-</div>
- 
+
 <!-- ④ 환율 -->
 <div class="section" id="tab-exchange">
   <div class="exch-hero">
@@ -487,7 +445,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     </ul>
   </div>
 </div>
- 
+
 <!-- ⑤ 날씨 달력 -->
 <div class="section" id="tab-weather">
   <div id="weatherNowBox"><div style="text-align:center;padding:40px 0;color:var(--hint);font-size:13px"><div style="font-size:32px;margin-bottom:10px">🌤️</div>날씨 불러오는 중...</div></div>
@@ -504,7 +462,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
   </div>
   <div style="font-size:11px;color:var(--hint);text-align:center;margin-top:-6px;margin-bottom:12px">💧 강수확률 포함 · 도쿄 실시간 16일 예보</div>
 </div>
- 
+
 <!-- ⑥ 길찾기 -->
 <div class="section" id="tab-navi">
   <!-- 직접 입력 -->
@@ -521,7 +479,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     <button class="nav-go-btn" onclick="doNav()">🗺️ 구글맵으로 길찾기</button>
     <button class="nav-go-btn" style="background:linear-gradient(135deg,#ff7043,#ff8a65);box-shadow:0 4px 14px rgba(255,112,67,.28)" onclick="doNavCurrent()">📍 현재 위치에서 길찾기</button>
   </div>
- 
+
   <!-- 역 목록 -->
   <div class="card">
     <div class="sec-label">🚇 야마노테선 역 검색</div>
@@ -531,107 +489,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     <div class="station-list-scroll" id="stationListWrap"></div>
   </div>
 </div>
- 
-<!-- ⑦ 학습 -->
-<div class="section" id="tab-learn">
-  <div class="learn-hero" style="position:relative">
-    <div class="today-lbl">✨ 오늘의 단어</div>
-    <div class="today-jp" id="todayJP">—</div>
-    <div class="today-info" id="todayInfo">로딩 중...</div>
-    <div class="today-speak" onclick="speakWord()">🔊</div>
-  </div>
- 
-  <div class="learn-tab-row">
-    <button class="learn-tab-btn active" onclick="showLearnTab('kana',this)">🔤 히라가나·카타카나</button>
-    <button class="learn-tab-btn" onclick="showLearnTab('flash',this)">🃏 단어 플래시카드</button>
-    <button class="learn-tab-btn" onclick="showLearnTab('grammar',this)">📐 문법 카드</button>
-    <button class="learn-tab-btn" onclick="showLearnTab('listening',this)">👂 리스닝 퀴즈</button>
-    <button class="learn-tab-btn" onclick="showLearnTab('ai',this)">🤖 AI 선생님</button>
-  </div>
- 
-  <!-- 히라가나/카타카나 -->
-  <div class="learn-section active" id="ls-kana">
-    <div class="kana-tab-row">
-      <button class="kana-tab-btn active" onclick="showKana('hiragana',this)">ひらがな</button>
-      <button class="kana-tab-btn" onclick="showKana('katakana',this)">カタカナ</button>
-    </div>
-    <div class="kana-tip" id="kanaTip"></div>
-    <div class="kana-table-wrap"><table class="kana-table" id="kanaTable"></table></div>
-    <div style="font-size:11px;color:var(--hint);text-align:center;margin-bottom:8px">글자를 누르면 발음을 들을 수 있어요 🔊</div>
-  </div>
- 
-  <!-- 플래시카드 -->
-  <div class="learn-section" id="ls-flash">
-    <div class="flash-level-row" id="flashLevelRow"></div>
-    <div class="flash-score-row">
-      <div class="flash-score-item">✅ <span id="flashKnow">0</span></div>
-      <div class="flash-score-item">❌ <span id="flashDunno">0</span></div>
-      <div class="flash-score-item">📦 남은 <span id="flashLeft">0</span></div>
-    </div>
-    <div class="flash-progress" id="flashProgress">카드를 눌러서 뒷면을 확인하세요</div>
-    <div class="flash-card" id="flashCard" onclick="flipCard()">
-      <div class="flash-front" id="flashFront">—</div>
-      <div class="flash-hint-txt" id="flashHintTxt">눌러서 확인</div>
-      <div class="flash-back" id="flashBack"></div>
-    </div>
-    <div class="flash-btns" id="flashBtns" style="display:none">
-      <button class="flash-btn dunno" onclick="answerCard(false)">❌ 모르겠어</button>
-      <button class="flash-btn know" onclick="answerCard(true)">✅ 알아요!</button>
-    </div>
-  </div>
- 
-  <!-- 문법 카드 -->
-  <div class="learn-section" id="ls-grammar">
-    <div class="grammar-list" id="grammarList"></div>
-  </div>
- 
-  <!-- 리스닝 퀴즈 -->
-  <div class="learn-section" id="ls-listening">
-    <div class="card">
-      <div class="sec-label">👂 리스닝 퀴즈 — 듣고 맞추기</div>
-      <div style="font-size:12px;color:var(--sub);margin-bottom:12px;line-height:1.6">일본어 발음을 듣고 뜻을 맞혀보세요. 🔊 버튼을 눌러 들을 수 있어요.</div>
-      <div style="display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap" id="listeningLevelRow"></div>
-      <div style="text-align:center;font-size:12px;color:var(--hint);margin-bottom:10px" id="listeningProgress">문제를 불러오는 중...</div>
-      <!-- 문제 카드 -->
-      <div style="background:linear-gradient(135deg,#fff0f6,#fff);border-radius:20px;padding:24px 16px;margin-bottom:12px;text-align:center;box-shadow:var(--sh2);border:2px solid var(--pink2);min-height:120px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px" id="listeningCard">
-        <div style="font-size:13px;color:var(--hint)">레벨을 선택하고 시작하세요</div>
-      </div>
-      <!-- 듣기 버튼 -->
-      <button id="listenBtn" onclick="playListening()" style="width:100%;padding:13px;background:linear-gradient(135deg,#42a5f5,#26c6da);color:#fff;border:none;border-radius:var(--r);font-size:15px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;margin-bottom:10px;box-shadow:0 4px 14px rgba(66,165,245,.28);display:none">
-        🔊 다시 듣기
-      </button>
-      <!-- 보기 -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px" id="listeningChoices"></div>
-      <!-- 결과 -->
-      <div id="listeningResult" style="display:none;border-radius:var(--rs);padding:12px 14px;font-size:13.5px;font-weight:600;text-align:center;margin-bottom:10px"></div>
-      <!-- 다음 버튼 -->
-      <button id="listeningNextBtn" onclick="nextListening()" style="width:100%;padding:12px;background:linear-gradient(135deg,var(--pink),#f06292);color:#fff;border:none;border-radius:var(--r);font-size:14px;font-weight:700;font-family:'Noto Sans KR',sans-serif;cursor:pointer;box-shadow:0 3px 10px rgba(233,30,140,.25);display:none">
-        다음 문제 →
-      </button>
-    </div>
-  </div>
- 
-  <!-- AI 선생님 -->
-  <div class="learn-section" id="ls-ai">
-    <div class="card">
-      <div class="sec-label">AI 학습 모드 선택</div>
-      <div class="mode-row">
-        <button class="mode-btn active" onclick="setMode(this,'translate')">📝 한→일</button>
-        <button class="mode-btn" onclick="setMode(this,'write')">✍️ 쓰기</button>
-        <button class="mode-btn" onclick="setMode(this,'hiragana')">あ 히라가나</button>
-        <button class="mode-btn" onclick="setMode(this,'word')">📖 단어</button>
-        <button class="mode-btn" onclick="setMode(this,'grammar')">📐 문법</button>
-      </div>
-      <textarea id="learnInput" placeholder="궁금한 것을 입력하세요&#10;예: '사랑해'를 일본어로 어떻게 써요?" rows="3"></textarea>
-      <button class="big-btn" id="learnBtn" onclick="doLearn()" style="margin-top:9px;margin-bottom:0">
-        <div class="spinner" id="learnSpinner"></div><span id="learnBtnText">✨ 질문하기</span>
-      </button>
-      <div class="err" id="learnError" style="margin-top:9px;margin-bottom:0"></div>
-      <div class="learn-result" id="learnResult"></div>
-    </div>
-  </div>
-</div>
- 
+
 <!-- ⑧ 체크리스트 -->
 <div class="section" id="tab-checklist">
   <!-- 진행률 -->
@@ -640,94 +498,40 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--pink);backgro
     <div class="progress-bar-bg"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
     <button class="check-reset-btn" onclick="resetAllChecks()">↺ 체크 전체 초기화</button>
   </div>
- 
+
   <!-- 카테고리 추가 -->
   <div class="add-section-row">
     <input class="add-section-input" type="text" id="newSectionInput" placeholder="새 카테고리 이름 (예: 🎒 쇼핑 리스트)">
     <button class="add-section-btn" onclick="addSection()">+ 추가</button>
   </div>
- 
+
   <!-- 체크리스트 본문 -->
   <div id="checklistContent"></div>
 </div>
- 
+
 <!-- ⑨ 여행팁 -->
 <div class="section" id="tab-tips">
- 
+
   <!-- 카테고리 탭 -->
   <div class="cat-tabs" id="tipCatTabs" style="margin-bottom:14px"></div>
- 
+
   <!-- 팁 콘텐츠 -->
   <div id="tipContent"></div>
- 
+
 </div>
-<!-- ⑩ D-day -->
-<div class="section" id="tab-dday">
-  <div class="dday-hero">
-    <div class="sec-label" style="color:rgba(255,255,255,.75)">✈️ 여행 카운트다운</div>
-    <div id="ddayNum" class="dday-num">--</div>
-    <div id="ddayLabel" class="dday-label">출발일을 설정해주세요</div>
-    <input class="dday-date-input" type="date" id="ddayInput" onchange="saveDday()">
-  </div>
-  <div class="card">
-    <div class="sec-label">📋 여행 정보</div>
-    <div id="ddayInfo" style="font-size:13px;color:var(--sub);line-height:1.9"></div>
-  </div>
-  <div class="card">
-    <div class="sec-label">💡 D-day별 준비 가이드</div>
-    <ul class="tip-list">
-      <li><span class="tip-bullet">D-90</span>항공권·숙소 예약, 여권 유효기간 확인</li>
-      <li><span class="tip-bullet">D-30</span>여행자 보험 가입, 유심/포켓와이파이 예약</li>
-      <li><span class="tip-bullet">D-14</span>엔화 환전, 체크리스트 시작</li>
-      <li><span class="tip-bullet">D-7</span>짐 싸기 시작, 구글맵 오프라인 다운로드</li>
-      <li><span class="tip-bullet">D-1</span>여권·항공권 재확인, 보조배터리 충전</li>
-      <li><span class="tip-bullet">D-day</span>공항 2~3시간 전 도착, 수하물 규정 확인</li>
-    </ul>
-  </div>
-</div>
- 
-<!-- ⑪ 즐겨찾기 -->
-<div class="section" id="tab-favorites">
-  <div class="card" style="margin-bottom:12px">
-    <div class="sec-label">⭐ 저장된 번역</div>
-    <div style="font-size:12px;color:var(--hint);margin-bottom:0">번역 탭에서 ⭐ 버튼을 누르면 여기에 저장돼요</div>
-  </div>
-  <div id="favList"></div>
-</div>
- 
-<!-- ⑫ 코스 메모 -->
-<div class="section" id="tab-memo">
-  <div class="card">
-    <div class="sec-label">🗺️ 여행 코스 메모</div>
-    <input class="memo-date-input" type="date" id="memoDateInput" placeholder="날짜 선택">
-    <textarea id="memoTextInput" placeholder="예: 10:00 센소지 → 12:00 아사쿠사 점심 → 15:00 스카이트리&#10;예약번호, 주소 등 자유롭게 메모하세요" rows="3" style="margin-bottom:8px"></textarea>
-    <button class="big-btn" onclick="addMemo()" style="margin-bottom:0">+ 메모 추가</button>
-  </div>
-  <div id="memoList"></div>
-</div>
- 
-<!-- ⑬ AI 대화 연습 -->
-<div class="section" id="tab-roleplay">
-  <div class="card">
-    <div class="sec-label">🎭 상황 선택</div>
-    <div class="roleplay-scene-row" id="sceneRow"></div>
-    <div class="sec-label" style="margin-top:4px;margin-bottom:8px">💬 대화</div>
-    <div class="chat-box" id="chatBox"></div>
-    <div class="chat-input-row">
-      <input class="chat-input" type="text" id="chatInput" placeholder="한국어로 말해보세요...">
-      <button class="chat-send-btn" onclick="sendChat()">전송</button>
-    </div>
-    <div class="err" id="chatError" style="margin-top:8px"></div>
-    <button onclick="resetChat()" style="width:100%;padding:9px;border:1.5px solid var(--bor);border-radius:var(--rs);background:transparent;font-size:12px;font-family:'Noto Sans KR',sans-serif;color:var(--hint);cursor:pointer;margin-top:8px">↺ 대화 초기화</button>
-  </div>
-</div>
- 
+
 </div>
 <div class="toast" id="toast"></div>
- 
+
 <script>
+// ── 안전한 스토리지 래퍼 (카카오톡 인앱브라우저 대응) ──────────────────
+var _storage={};
+function sGet(k){try{return localStorage.getItem(k);}catch(e){return _storage[k]||null;}}
+function sSet(k,v){try{localStorage.setItem(k,v);}catch(e){_storage[k]=v;}}
+function sDel(k){try{localStorage.removeItem(k);}catch(e){delete _storage[k];}}
+
 // ── 닉네임 & 온보딩 ──────────────────────────────────────────────
-var currentUser=localStorage.getItem('jp_nickname')||'';
+var currentUser=sGet('jp_nickname')||'';
 function initApp(){
   if(currentUser){
     document.getElementById('onboardOverlay').style.display='none';
@@ -740,7 +544,7 @@ function setNickname(){
   var val=document.getElementById('nicknameInput').value.trim();
   if(!val){showToast('닉네임을 입력해주세요');return;}
   currentUser=val;
-  localStorage.setItem('jp_nickname',val);
+  sSet('jp_nickname',val);
   document.getElementById('onboardOverlay').style.display='none';
   updateHeaderNickname();
   showToast(val+'님, 환영해요! 🌸');
@@ -750,176 +554,16 @@ function updateHeaderNickname(){
   if(el) el.textContent=currentUser+'님의 도쿄 여행 🌸';
 }
 document.getElementById('nicknameInput').addEventListener('keydown',function(e){if(e.key==='Enter')setNickname();});
- 
-// ── D-day ──────────────────────────────────────────────
-function loadDday(){
-  var saved=localStorage.getItem('jp_dday');
-  if(saved){document.getElementById('ddayInput').value=saved;updateDday();}
-}
-function saveDday(){
-  localStorage.setItem('jp_dday',document.getElementById('ddayInput').value);
-  updateDday();
-}
-function updateDday(){
-  var v=document.getElementById('ddayInput').value; if(!v) return;
-  var today=new Date(); today.setHours(0,0,0,0);
-  var target=new Date(v); target.setHours(0,0,0,0);
-  var diff=Math.round((target-today)/(1000*60*60*24));
-  var numEl=document.getElementById('ddayNum');
-  var lblEl=document.getElementById('ddayLabel');
-  var infoEl=document.getElementById('ddayInfo');
-  if(diff>0){numEl.textContent='D-'+diff;lblEl.textContent='일 후 출발! 설레는 도쿄 여행 🌸';}
-  else if(diff===0){numEl.textContent='D-day';lblEl.textContent='오늘이 출발일이에요! 즐거운 여행 되세요 ✈️';}
-  else{numEl.textContent='D+'+ Math.abs(diff);lblEl.textContent='일 째 여행 중! 즐기고 있나요? 😊';}
-  var months=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
-  var days2=['일','월','화','수','목','금','토'];
-  var d=new Date(v);
-  infoEl.innerHTML='📅 출발일: <b>'+d.getFullYear()+'년 '+months[d.getMonth()]+d.getDate()+'일 ('+days2[d.getDay()]+'요일)</b><br>👤 여행자: <b>'+(currentUser||'미설정')+'</b><br>⏰ 남은 시간: <b>'+(diff>0?diff+'일':'오늘!')+'</b>';
-}
- 
-// ── 즐겨찾기 ──────────────────────────────────────────────
-function getFavKey(){return 'jp_favs_'+(currentUser||'default');}
-function loadFavs(){return JSON.parse(localStorage.getItem(getFavKey())||'[]');}
-function saveFavs(arr){localStorage.setItem(getFavKey(),JSON.stringify(arr));}
-function saveFav(){
-  var jp=document.getElementById('jpText').textContent;
-  var rom=document.getElementById('romText').textContent;
-  var krp=document.getElementById('krPron').textContent;
-  if(!jp){showToast('번역 결과가 없어요');return;}
-  var favs=loadFavs();
-  if(favs.find(function(f){return f.jp===jp;})){showToast('이미 저장된 번역이에요');return;}
-  favs.unshift({jp:jp,rom:rom,krp:krp});
-  saveFavs(favs); renderFavs();
-  showToast('즐겨찾기에 저장됐어요 ⭐');
-  var btn=document.getElementById('favBtn');
-  btn.textContent='✅ 저장됨';
-  setTimeout(function(){btn.textContent='⭐ 저장';},2000);
-}
-function renderFavs(){
-  var favs=loadFavs();
-  var wrap=document.getElementById('favList');
-  if(!favs.length){wrap.innerHTML='<div class="fav-empty">⭐<br><br>아직 저장된 번역이 없어요.<br>번역 탭에서 ⭐ 버튼을 눌러보세요!</div>';return;}
-  wrap.innerHTML='';
-  favs.forEach(function(f,i){
-    var card=document.createElement('div'); card.className='fav-item';
-    var jpDiv=document.createElement('div'); jpDiv.className='fav-jp'; jpDiv.textContent=f.jp; card.appendChild(jpDiv);
-    var romDiv=document.createElement('div'); romDiv.className='fav-rom'; romDiv.textContent=f.rom; card.appendChild(romDiv);
-    var krDiv=document.createElement('div'); krDiv.className='fav-kr'; krDiv.textContent=f.krp; card.appendChild(krDiv);
-    var acts=document.createElement('div'); acts.className='fav-actions';
-    var b1=document.createElement('button'); b1.className='fav-btn'; b1.textContent='🔊 듣기'; b1.onclick=(function(t){return function(){speak(t);};})(f.jp); acts.appendChild(b1);
-    var b2=document.createElement('button'); b2.className='fav-btn'; b2.textContent='📋 복사'; b2.onclick=(function(t,r){return function(){navigator.clipboard.writeText(t+'\n'+r).then(function(){showToast('복사됐어요 ✓');});};})(f.jp,f.rom); acts.appendChild(b2);
-    var b3=document.createElement('button'); b3.className='fav-btn del'; b3.textContent='삭제'; b3.onclick=(function(idx){return function(){var fs=loadFavs();fs.splice(idx,1);saveFavs(fs);renderFavs();};})(i); acts.appendChild(b3);
-    card.appendChild(acts); wrap.appendChild(card);
-  });
-}
- 
-// ── 코스 메모 ──────────────────────────────────────────────
-function getMemoKey(){return 'jp_memos_'+(currentUser||'default');}
-function loadMemos(){return JSON.parse(localStorage.getItem(getMemoKey())||'[]');}
-function saveMemos2(arr){localStorage.setItem(getMemoKey(),JSON.stringify(arr));}
-function addMemo(){
-  var date=document.getElementById('memoDateInput').value;
-  var text=document.getElementById('memoTextInput').value.trim();
-  if(!text){showToast('내용을 입력해주세요');return;}
-  var memos=loadMemos();
-  var months2=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
-  var days3=['일','월','화','수','목','금','토'];
-  var dateLabel=date?(function(){var d=new Date(date);return d.getFullYear()+'년 '+months2[d.getMonth()]+d.getDate()+'일 ('+days3[d.getDay()]+'요일)';})():'날짜 미정';
-  memos.push({id:Date.now(),date:date||'',dateLabel:dateLabel,text:text});
-  memos.sort(function(a,b){return(a.date||'9999')>(b.date||'9999')?1:-1;});
-  saveMemos2(memos);
-  document.getElementById('memoTextInput').value='';
-  renderMemos(); showToast('메모가 추가됐어요 ✓');
-}
-function renderMemos(){
-  var memos=loadMemos();
-  var wrap=document.getElementById('memoList');
-  if(!memos.length){wrap.innerHTML='<div class="fav-empty">📅<br><br>아직 메모가 없어요.<br>여행 코스를 추가해보세요!</div>';return;}
-  wrap.innerHTML='';
-  memos.forEach(function(m){
-    var el=document.createElement('div'); el.className='memo-item-row';
-    var dateDiv=document.createElement('div'); dateDiv.className='memo-item-date'; dateDiv.textContent='📅 '+m.dateLabel; el.appendChild(dateDiv);
-    var textDiv=document.createElement('div'); textDiv.className='memo-item-text'; textDiv.innerHTML=esc(m.text).replace(/\n/g,'<br>'); el.appendChild(textDiv);
-    var acts=document.createElement('div'); acts.className='memo-item-actions';
-    var delBtn=document.createElement('button'); delBtn.className='memo-del-btn'; delBtn.textContent='삭제';
-    delBtn.onclick=(function(id){return function(){var ms=loadMemos().filter(function(x){return x.id!==id;});saveMemos2(ms);renderMemos();};})(m.id);
-    acts.appendChild(delBtn); el.appendChild(acts); wrap.appendChild(el);
-  });
-}
- 
-// ── AI 대화 연습 ──────────────────────────────────────────────
-var SCENES=[
-  {id:'restaurant',label:'🍜 식당',system:'당신은 일본 식당 직원입니다. 사용자가 한국어로 말하면 일본어로 응답하고 바로 다음 줄에 한국어 번역을 써주세요. 형식: 일본어 문장\n(한국어 번역)'},
-  {id:'hotel',label:'🏨 호텔',system:'당신은 일본 호텔 프런트 직원입니다. 사용자가 한국어로 말하면 일본어로 응답하고 바로 다음 줄에 한국어 번역을 써주세요. 형식: 일본어 문장\n(한국어 번역)'},
-  {id:'shop',label:'🛍️ 쇼핑',system:'당신은 일본 쇼핑몰 직원입니다. 사용자가 한국어로 말하면 일본어로 응답하고 바로 다음 줄에 한국어 번역을 써주세요. 형식: 일본어 문장\n(한국어 번역)'},
-  {id:'taxi',label:'🚕 택시',system:'당신은 일본 택시 기사입니다. 사용자가 한국어로 말하면 일본어로 응답하고 바로 다음 줄에 한국어 번역을 써주세요. 형식: 일본어 문장\n(한국어 번역)'},
-  {id:'conv',label:'🏪 편의점',system:'당신은 일본 편의점 직원입니다. 사용자가 한국어로 말하면 일본어로 응답하고 바로 다음 줄에 한국어 번역을 써주세요. 형식: 일본어 문장\n(한국어 번역)'},
-];
-var currentScene=SCENES[0];
-var chatHistory=[];
-var chatLoading=false;
-function renderScenes(){
-  var row=document.getElementById('sceneRow'); row.innerHTML='';
-  SCENES.forEach(function(s){
-    var btn=document.createElement('button'); btn.className='scene-btn'+(s.id===currentScene.id?' active':'');
-    btn.textContent=s.label;
-    btn.onclick=(function(sc){return function(){currentScene=sc;renderScenes();resetChat();};})(s);
-    row.appendChild(btn);
-  });
-}
-function resetChat(){
-  chatHistory=[];
-  var box=document.getElementById('chatBox'); box.innerHTML='';
-  var msg=document.createElement('div'); msg.className='chat-msg ai';
-  msg.innerHTML='<div class="msg-jp">いらっしゃいませ！</div><div class="msg-kr">어서오세요! '+currentScene.label+' 직원입니다.<br>한국어로 자유롭게 말씀해보세요 😊</div>';
-  box.appendChild(msg);
-}
-function addBubble(text,isUser,jp,kr){
-  var box=document.getElementById('chatBox');
-  var msg=document.createElement('div'); msg.className='chat-msg '+(isUser?'user':'ai');
-  if(!isUser&&jp){msg.innerHTML='<div class="msg-jp">'+esc(jp)+'</div><div class="msg-kr">'+esc(kr||text)+'</div>';}
-  else{msg.textContent=text;}
-  box.appendChild(msg); box.scrollTop=box.scrollHeight;
-}
-async function sendChat(){
-  var input=document.getElementById('chatInput');
-  var text=input.value.trim(); if(!text||chatLoading) return;
-  chatLoading=true; input.value='';
-  addBubble(text,true);
-  chatHistory.push({role:'user',content:text});
-  document.getElementById('chatError').classList.remove('show');
-  var box=document.getElementById('chatBox');
-  var loading=document.createElement('div'); loading.className='chat-msg ai'; loading.id='chatLoading'; loading.textContent='...';
-  box.appendChild(loading); box.scrollTop=box.scrollHeight;
-  try{
-    var msgs=[{role:'user',content:currentScene.system}].concat(chatHistory);
-    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:msgs})});
-    var data=await res.json();
-    var reply=data.content.map(function(i){return i.text||'';}).join('');
-    chatHistory.push({role:'assistant',content:reply});
-    var loadEl=document.getElementById('chatLoading'); if(loadEl) loadEl.remove();
-    var lines=reply.split('\n');
-    var jpLine=lines[0]||reply;
-    var krLine=lines.slice(1).join(' ').replace(/[()（）]/g,'').trim()||'';
-    addBubble(reply,false,jpLine,krLine);
-  }catch(e){
-    var loadEl2=document.getElementById('chatLoading'); if(loadEl2) loadEl2.remove();
-    showErr('chatError','오류가 발생했어요. 다시 시도해주세요.');
-  }
-  chatLoading=false;
-}
-document.getElementById('chatInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendChat();}});
- 
+
 // ── 시계 ──────────────────────────────────────────────
- 
+
 function updateClock(){
   var now=new Date();
   var t=new Date(now.toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));
   document.getElementById('tokyoClock').textContent='🗼 '+String(t.getHours()).padStart(2,'0')+':'+String(t.getMinutes()).padStart(2,'0');
 }
 updateClock(); setInterval(updateClock,10000);
- 
+
 // ── 탭 ──────────────────────────────────────────────
 function showTab(name,btn){
   document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active')});
@@ -927,7 +571,7 @@ function showTab(name,btn){
   document.getElementById('tab-'+name).classList.add('active');
   if(btn) btn.classList.add('active');
 }
- 
+
 // ── 번역 ──────────────────────────────────────────────
 async function doTranslate(){
   var text=document.getElementById('inputText').value.trim(); if(!text) return;
@@ -956,7 +600,7 @@ function shareResult(){
   var t=document.getElementById('jpText').textContent+'\n'+document.getElementById('romText').textContent;
   if(navigator.share){navigator.share({title:'일본어 번역',text:t});}else copyResult();
 }
- 
+
 // ── 사진 번역 ──────────────────────────────────────────────
 var camB64=null;
 function onImageSelect(e){
@@ -986,9 +630,15 @@ async function doCamTranslate(){
   }catch(e){showErr('camError','분석 오류. 다시 시도해주세요.');}
   setLoad('camBtn','camSpinner','camBtnText','🔍 일본어 읽어주기',false);
 }
- 
-// ── 회화 ──────────────────────────────────────────────
-var CATS=[{id:'hotel',label:'🏨 호텔'},{id:'conv',label:'🏪 편의점'},{id:'rest',label:'🍱 식당'},{id:'shop',label:'🛍️ 쇼핑'},{id:'trans',label:'🚃 교통'}];
+
+// ── 자주 쓰는 문장 ──────────────────────────────────────────────
+var PHRASE_CATS=[
+  {id:'hotel',  label:'🏨 호텔'},
+  {id:'conv',   label:'🏪 편의점'},
+  {id:'rest',   label:'🍱 식당'},
+  {id:'shop',   label:'🛍️ 쇼핑'},
+  {id:'trans',  label:'🚃 교통'},
+];
 var PHRASES={
   hotel:[
     {jp:'チェックインをお願いします',rom:'chekkuin wo onegai shimasu',krp:'체꾸인 오 오네가이 시마스',kr:'체크인 부탁드립니다'},
@@ -997,6 +647,7 @@ var PHRASES={
     {jp:'Wi-Fiのパスワードを教えてください',rom:'wifi no pasuwaado wo oshiete kudasai',krp:'와이파이 파스와도 오시에테 쿠다사이',kr:'와이파이 비밀번호 알려주세요'},
     {jp:'タオルを追加でください',rom:'taoru wo tsuika de kudasai',krp:'타오루 오 츠이카 데 쿠다사이',kr:'수건 추가로 주세요'},
     {jp:'荷物を預けられますか？',rom:'nimotsu wo azukeraremasu ka',krp:'니모츠 오 아즈케라레마스까',kr:'짐 맡아주실 수 있나요?'},
+    {jp:'禁煙部屋をお願いします',rom:'kin-en heya wo onegai shimasu',krp:'킨엔 헤야 오 오네가이 시마스',kr:'금연 방으로 부탁드려요'},
   ],
   conv:[
     {jp:'袋はいりません',rom:'fukuro wa irimasen',krp:'후쿠로 와 이리마센',kr:'봉투 필요 없어요'},
@@ -1005,6 +656,7 @@ var PHRASES={
     {jp:'これはどこにありますか？',rom:'kore wa doko ni arimasu ka',krp:'코레 와 도코 니 아리마스까',kr:'이거 어디 있어요?'},
     {jp:'領収書をください',rom:'ryoushuusho wo kudasai',krp:'료슈쇼 오 쿠다사이',kr:'영수증 주세요'},
     {jp:'カードで払えますか？',rom:'kaado de haraemasu ka',krp:'카도 데 하라에마스까',kr:'카드 결제 되나요?'},
+    {jp:'ATMはどこですか？',rom:'ATM wa doko desu ka',krp:'에이티엠 와 도코 데스까',kr:'ATM이 어디예요?'},
   ],
   rest:[
     {jp:'一人です',rom:'hitori desu',krp:'히토리 데스',kr:'1명이에요'},
@@ -1013,6 +665,7 @@ var PHRASES={
     {jp:'お会計をお願いします',rom:'okaikei wo onegai shimasu',krp:'오카이케이 오 오네가이 시마스',kr:'계산 부탁드려요'},
     {jp:'水をください',rom:'mizu wo kudasai',krp:'미즈 오 쿠다사이',kr:'물 주세요'},
     {jp:'アレルギーがあります',rom:'arerugii ga arimasu',krp:'아레루기 가 아리마스',kr:'알레르기가 있어요'},
+    {jp:'辛くないものはありますか？',rom:'karakunai mono wa arimasu ka',krp:'카라쿠나이 모노 와 아리마스까',kr:'안 매운 것 있나요?'},
   ],
   shop:[
     {jp:'これはいくらですか？',rom:'kore wa ikura desu ka',krp:'코레 와 이쿠라 데스까',kr:'이거 얼마예요?'},
@@ -1020,6 +673,7 @@ var PHRASES={
     {jp:'免税できますか？',rom:'menzei dekimasu ka',krp:'멘제이 데키마스까',kr:'면세 되나요?'},
     {jp:'別の色はありますか？',rom:'betsu no iro wa arimasu ka',krp:'베츠 노 이로 와 아리마스까',kr:'다른 색상 있나요?'},
     {jp:'大きいサイズはありますか？',rom:'ookii saizu wa arimasu ka',krp:'오키이 사이즈 와 아리마스까',kr:'큰 사이즈 있나요?'},
+    {jp:'これをください',rom:'kore wo kudasai',krp:'코레 오 쿠다사이',kr:'이거 살게요'},
   ],
   trans:[
     {jp:'〇〇駅までお願いします',rom:'〇〇 eki made onegai shimasu',krp:'〇〇 에키 마데 오네가이 시마스',kr:'〇〇역까지 부탁드려요'},
@@ -1027,34 +681,59 @@ var PHRASES={
     {jp:'ここに止めてください',rom:'koko ni tomete kudasai',krp:'코코 니 토메테 쿠다사이',kr:'여기서 세워주세요'},
     {jp:'次は何駅ですか？',rom:'tsugi wa nan eki desu ka',krp:'츠기 와 난 에키 데스까',kr:'다음 역이 어디예요?'},
     {jp:'乗り換えはどこですか？',rom:'norikae wa doko desu ka',krp:'노리카에 와 도코 데스까',kr:'환승은 어디서 해요?'},
+    {jp:'この電車は〇〇に止まりますか？',rom:'kono densha wa 〇〇 ni tomarimasu ka',krp:'코노 덴샤 와 〇〇 니 토마리마스까',kr:'이 전철 〇〇에 서나요?'},
   ],
 };
-var currentCat='hotel';
-function renderCatTabs(){
-  document.getElementById('catTabs').innerHTML=CATS.map(function(c){
-    return '<button class="cat-tab'+(c.id===currentCat?' active':'')+'" onclick="selectCat(\''+c.id+'\')">'+c.label+'</button>';
-  }).join('');
+var currentPhraseCat='hotel';
+
+function renderPhraseCatTabs(){
+  var wrap=document.getElementById('phraseCatTabs');
+  wrap.innerHTML='';
+  PHRASE_CATS.forEach(function(c){
+    var btn=document.createElement('button');
+    btn.className='cat-tab'+(c.id===currentPhraseCat?' active':'');
+    btn.textContent=c.label;
+    btn.onclick=(function(id){return function(){currentPhraseCat=id;renderPhraseCatTabs();renderPhraseItems();};})(c.id);
+    wrap.appendChild(btn);
+  });
 }
-function selectCat(id){currentCat=id;renderCatTabs();renderPhrases();}
-function renderPhrases(){
-  document.getElementById('phraseList').innerHTML=(PHRASES[currentCat]||[]).map(function(p){
-    var enc=encodeURIComponent(JSON.stringify(p));
-    return '<div class="phrase-item" onclick="usePhrase(\''+enc+'\')">'
-      +'<div class="pi-top"><span class="pi-jp">'+p.jp+'</span><span class="pi-kr">'+p.kr+'</span></div>'
-      +'<div class="pi-rom">'+p.rom+'</div>'
-      +'<div class="pi-krpron">한국어 발음: '+p.krp+'</div></div>';
-  }).join('');
+
+function renderPhraseItems(){
+  var list=PHRASES[currentPhraseCat]||[];
+  var wrap=document.getElementById('phraseItems');
+  wrap.innerHTML='';
+  list.forEach(function(p){
+    var item=document.createElement('div');
+    item.style.cssText='background:var(--pink4);border-radius:var(--rs);padding:12px 13px;margin-bottom:7px;border:1px solid var(--bor);cursor:pointer';
+    var topRow=document.createElement('div');
+    topRow.style.cssText='display:flex;align-items:baseline;justify-content:space-between;margin-bottom:3px';
+    var jpSpan=document.createElement('span');
+    jpSpan.className='noto-jp';
+    jpSpan.style.cssText='font-size:16px;font-weight:500;color:var(--txt)';
+    jpSpan.textContent=p.jp;
+    var krSpan=document.createElement('span');
+    krSpan.style.cssText='font-size:11px;color:var(--sub)';
+    krSpan.textContent=p.kr;
+    topRow.appendChild(jpSpan); topRow.appendChild(krSpan);
+    var romDiv=document.createElement('div');
+    romDiv.style.cssText='font-size:11px;color:var(--pink);font-weight:700;margin-bottom:2px';
+    romDiv.textContent=p.rom;
+    var krpDiv=document.createElement('div');
+    krpDiv.style.cssText='font-size:11px;color:var(--hint)';
+    krpDiv.textContent='한국어 발음: '+p.krp;
+    item.appendChild(topRow); item.appendChild(romDiv); item.appendChild(krpDiv);
+    item.onclick=(function(ph){return function(){
+      document.getElementById('jpText').textContent=ph.jp;
+      document.getElementById('romText').textContent=ph.rom;
+      document.getElementById('krPron').textContent='한국어 발음: '+ph.krp;
+      document.getElementById('naturalText').textContent='의미: '+ph.kr;
+      document.getElementById('resultCard').classList.add('show');
+      window.scrollTo({top:0,behavior:'smooth'});
+    };})(p);
+    wrap.appendChild(item);
+  });
 }
-function usePhrase(enc){
-  var p=JSON.parse(decodeURIComponent(enc));
-  showTab('translate',document.querySelectorAll('.tab-btn')[0]);
-  document.getElementById('jpText').textContent=p.jp;
-  document.getElementById('romText').textContent=p.rom;
-  document.getElementById('krPron').textContent='한국어 발음: '+p.krp;
-  document.getElementById('naturalText').textContent='의미: '+p.kr;
-  document.getElementById('resultCard').classList.add('show');
-}
- 
+
 // ── 환율 ──────────────────────────────────────────────
 var exchMode='krw_jpy', exchRate=0.0093;
 async function fetchRate(){
@@ -1098,13 +777,13 @@ function calcReceipt(){
   document.getElementById('calcAfterDiscount').textContent='¥ '+after.toLocaleString();
   document.getElementById('calcResultBox').classList.add('show');
 }
- 
+
 // ── 날씨 ──────────────────────────────────────────────
 var WI={0:'☀️',1:'🌤️',2:'⛅',3:'☁️',45:'🌫️',48:'🌫️',51:'🌦️',53:'🌦️',55:'🌧️',61:'🌧️',63:'🌧️',65:'🌧️',71:'🌨️',73:'🌨️',75:'❄️',80:'🌦️',81:'🌧️',82:'⛈️',95:'⛈️',99:'⛈️'};
 var WD={0:'맑음',1:'대체로 맑음',2:'구름 조금',3:'흐림',45:'안개',51:'이슬비',53:'이슬비',55:'이슬비',61:'비',63:'비',65:'강한 비',71:'눈',80:'소나기',95:'뇌우'};
 var calToday=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));
 var calYear=calToday.getFullYear(), calMonth=calToday.getMonth(), wByDate={};
- 
+
 async function fetchWeather(){
   try{
     var url='https://api.open-meteo.com/v1/forecast?latitude=35.6762&longitude=139.6503'
@@ -1164,12 +843,12 @@ function moveMonth(dir){
   if(calMonth<0){calMonth=11;calYear--;}
   renderCalendar();
 }
- 
+
 // ── 길찾기 ──────────────────────────────────────────────
- 
+
 var navMode='transit';
 var NAV_MODES=[{id:'transit',label:'🚇 대중교통'},{id:'walking',label:'🚶 도보'},{id:'driving',label:'🚗 자동차'}];
- 
+
 function renderNavQuick(){
   document.getElementById('navQuickGrid').innerHTML=NAV_QUICK.map(function(p){
     return '<div class="nav-quick-btn" onclick="quickNav(\''+encodeURIComponent(p.q)+'\')">'
@@ -1209,7 +888,7 @@ function doNavCurrent(){
   var url='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(to)+'&travelmode='+navMode;
   window.open(url,'_blank');
 }
- 
+
 var STATIONS=[
   {jp:'東京',kr:'도쿄',color:'#E53935',tags:['환승','신칸센'],lat:35.6812,lng:139.7671},
   {jp:'有楽町',kr:'유라쿠초',color:'#4CAF50',tags:['쇼핑'],lat:35.6754,lng:139.7631},
@@ -1261,560 +940,8 @@ function renderStationList(){
 }
 function stMap(lat,lng,enc){window.open('https://www.google.com/maps/search/'+decodeURIComponent(enc)+'/@'+lat+','+lng+',16z','_blank');}
 function stNav(lat,lng,mode){window.open('https://www.google.com/maps/dir/?api=1&destination='+lat+','+lng+'&travelmode='+mode,'_blank');}
- 
+
 // ── 학습 ──────────────────────────────────────────────
-function showLearnTab(name,btn){
-  document.querySelectorAll('.learn-section').forEach(function(s){s.classList.remove('active')});
-  document.querySelectorAll('.learn-tab-btn').forEach(function(b){b.classList.remove('active')});
-  document.getElementById('ls-'+name).classList.add('active');
-  if(btn) btn.classList.add('active');
-}
- 
-// 오늘의 단어
-var TODAY_WORDS=[
-  {jp:'ありがとう',rom:'arigatou',krp:'아리가토',mean:'감사합니다'},
-  {jp:'すみません',rom:'sumimasen',krp:'스미마셍',mean:'실례합니다'},
-  {jp:'おいしい',rom:'oishii',krp:'오이시이',mean:'맛있다'},
-  {jp:'かわいい',rom:'kawaii',krp:'카와이이',mean:'귀엽다'},
-  {jp:'たのしい',rom:'tanoshii',krp:'타노시이',mean:'즐겁다'},
-  {jp:'さくら',rom:'sakura',krp:'사쿠라',mean:'벚꽃'},
-  {jp:'でんしゃ',rom:'densha',krp:'덴샤',mean:'전철'},
-  {jp:'おみやげ',rom:'omiyage',krp:'오미야게',mean:'기념품'},
-  {jp:'まち',rom:'machi',krp:'마치',mean:'거리/마을'},
-  {jp:'たべもの',rom:'tabemono',krp:'타베모노',mean:'음식'},
-  {jp:'りょかん',rom:'ryokan',krp:'료칸',mean:'일본 전통 여관'},
-  {jp:'はなみ',rom:'hanami',krp:'하나미',mean:'꽃구경(벚꽃놀이)'},
-  {jp:'まつり',rom:'matsuri',krp:'마츠리',mean:'축제'},
-  {jp:'おんせん',rom:'onsen',krp:'온센',mean:'온천'},
-];
-var todayWord=null;
-function initTodayWord(){
-  var idx=Math.floor(Date.now()/86400000)%TODAY_WORDS.length;
-  todayWord=TODAY_WORDS[idx];
-  document.getElementById('todayJP').textContent=todayWord.jp;
-  document.getElementById('todayInfo').textContent=todayWord.rom+' · '+todayWord.krp+' · 의미: '+todayWord.mean;
-}
-function speakWord(){if(todayWord) speak(todayWord.jp);}
- 
-// 히라가나/카타카나 표
-var HIRAGANA=[
-  ['あ','い','う','え','お'],['か','き','く','け','こ'],['さ','し','す','せ','そ'],
-  ['た','ち','つ','て','と'],['な','に','ぬ','ね','の'],['は','ひ','ふ','へ','ほ'],
-  ['ま','み','む','め','も'],['や','','ゆ','','よ'],['ら','り','る','れ','ろ'],
-  ['わ','','を','','ん'],
-];
-var KATAKANA=[
-  ['ア','イ','ウ','エ','オ'],['カ','キ','ク','ケ','コ'],['サ','シ','ス','セ','ソ'],
-  ['タ','チ','ツ','テ','ト'],['ナ','ニ','ヌ','ネ','ノ'],['ハ','ヒ','フ','ヘ','ホ'],
-  ['マ','ミ','ム','メ','モ'],['ヤ','','ユ','','ヨ'],['ラ','リ','ル','レ','ロ'],
-  ['ワ','','ヲ','','ン'],
-];
-var ROM=[
-  ['a','i','u','e','o'],['ka','ki','ku','ke','ko'],['sa','shi','su','se','so'],
-  ['ta','chi','tsu','te','to'],['na','ni','nu','ne','no'],['ha','hi','fu','he','ho'],
-  ['ma','mi','mu','me','mo'],['ya','','yu','','yo'],['ra','ri','ru','re','ro'],
-  ['wa','','wo','','n'],
-];
-var VOWELS=['a','i','u','e','o'];
-var KANA_TIPS={
-  hiragana:'히라가나는 일본 고유의 표음문자예요. 46자로 이루어져 있으며 주로 일본어 단어와 문법 요소를 표기해요. 외우는 팁: あ행부터 순서대로 노래처럼 외우면 빨라요!',
-  katakana:'카타카나는 주로 외래어·외국인 이름을 표기할 때 써요. 히라가나와 발음은 같지만 글자 모양이 달라요. 예: コーヒー(커피), ピザ(피자)',
-};
-var kanaType='hiragana';
-function showKana(type,btn){
-  kanaType=type;
-  document.querySelectorAll('.kana-tab-btn').forEach(function(b){b.classList.remove('active')});
-  if(btn) btn.classList.add('active');
-  renderKanaTable();
-}
-function renderKanaTable(){
-  document.getElementById('kanaTip').textContent=KANA_TIPS[kanaType];
-  var data=kanaType==='hiragana'?HIRAGANA:KATAKANA;
-  var head='<tr><th></th>'+VOWELS.map(function(v){return '<th>'+v+'</th>';}).join('')+'</tr>';
-  var rows=['あ行','か行','さ行','た行','な行','は行','ま行','や行','ら行','わ行'];
-  var body=data.map(function(row,ri){
-    return '<tr><th>'+rows[ri]+'</th>'+row.map(function(ch,ci){
-      if(!ch) return '<td style="background:#f8f8f8"></td>';
-      return '<td onclick="speak(\''+ch+'\')">'
-        +'<span class="kana-cell-jp">'+ch+'</span>'
-        +'<span class="kana-cell-rom">'+ROM[ri][ci]+'</span>'
-        +'</td>';
-    }).join('')+'</tr>';
-  }).join('');
-  document.getElementById('kanaTable').innerHTML=head+body;
-}
- 
-// 플래시카드
-var FLASH_SETS={
-  n5words:[
-    {front:'食べる',back:'타베루 — 먹다',hint:'N5 동사',cat:'동사'},
-    {front:'飲む',back:'노무 — 마시다',hint:'N5 동사',cat:'동사'},
-    {front:'行く',back:'이쿠 — 가다',hint:'N5 동사',cat:'동사'},
-    {front:'来る',back:'쿠루 — 오다',hint:'N5 동사',cat:'동사'},
-    {front:'見る',back:'미루 — 보다',hint:'N5 동사',cat:'동사'},
-    {front:'買う',back:'카우 — 사다',hint:'N5 동사',cat:'동사'},
-    {front:'大きい',back:'오키이 — 크다',hint:'N5 형용사',cat:'형용사'},
-    {front:'小さい',back:'치이사이 — 작다',hint:'N5 형용사',cat:'형용사'},
-    {front:'高い',back:'타카이 — 비싸다/높다',hint:'N5 형용사',cat:'형용사'},
-    {front:'安い',back:'야스이 — 싸다',hint:'N5 형용사',cat:'형용사'},
-    {front:'おいしい',back:'오이시이 — 맛있다',hint:'N5 형용사',cat:'형용사'},
-    {front:'新しい',back:'아타라시이 — 새롭다',hint:'N5 형용사',cat:'형용사'},
-    {front:'駅',back:'에키 — 역',hint:'N5 명사',cat:'명사'},
-    {front:'電車',back:'덴샤 — 전철',hint:'N5 명사',cat:'명사'},
-    {front:'学校',back:'각코 — 학교',hint:'N5 명사',cat:'명사'},
-    {front:'友達',back:'토모다치 — 친구',hint:'N5 명사',cat:'명사'},
-    {front:'今日',back:'쿄 — 오늘',hint:'N5 시간',cat:'시간'},
-    {front:'明日',back:'아시타 — 내일',hint:'N5 시간',cat:'시간'},
-    {front:'昨日',back:'키노 — 어제',hint:'N5 시간',cat:'시간'},
-    {front:'今',back:'이마 — 지금',hint:'N5 시간',cat:'시간'},
-  ],
-  travel:[
-    {front:'ありがとう',back:'아리가토 — 감사합니다',hint:'기본 인사'},
-    {front:'すみません',back:'스미마셍 — 저기요/실례합니다',hint:'기본 인사'},
-    {front:'いくら？',back:'이쿠라? — 얼마예요?',hint:'쇼핑'},
-    {front:'どこ？',back:'도코? — 어디예요?',hint:'길찾기'},
-    {front:'ください',back:'쿠다사이 — 주세요',hint:'쇼핑/식당'},
-    {front:'おいしい',back:'오이시이 — 맛있다',hint:'식당'},
-    {front:'えき',back:'에키 — 역',hint:'교통'},
-    {front:'トイレ',back:'토이레 — 화장실',hint:'필수'},
-    {front:'おかいけい',back:'오카이케이 — 계산서',hint:'식당'},
-    {front:'めんぜい',back:'멘제이 — 면세',hint:'쇼핑'},
-    {front:'おてあらい',back:'오테아라이 — 화장실 (정중)',hint:'필수'},
-    {front:'きっぷ',back:'킷푸 — 표/티켓',hint:'교통'},
-  ],
-  hiragana:[
-    {front:'あ',back:'a — 아',hint:'히라가나 모음'},
-    {front:'い',back:'i — 이',hint:'히라가나 모음'},
-    {front:'う',back:'u — 우',hint:'히라가나 모음'},
-    {front:'え',back:'e — 에',hint:'히라가나 모음'},
-    {front:'お',back:'o — 오',hint:'히라가나 모음'},
-    {front:'か',back:'ka — 카',hint:'히라가나 か행'},
-    {front:'き',back:'ki — 키',hint:'히라가나 か행'},
-    {front:'く',back:'ku — 쿠',hint:'히라가나 か행'},
-    {front:'さ',back:'sa — 사',hint:'히라가나 さ행'},
-    {front:'し',back:'shi — 시',hint:'히라가나 さ행'},
-    {front:'た',back:'ta — 타',hint:'히라가나 た행'},
-    {front:'な',back:'na — 나',hint:'히라가나 な행'},
-    {front:'は',back:'ha — 하',hint:'히라가나 は행'},
-  ],
-};
-var flashLevel='travel', flashDeck=[], flashIdx=0, flashFlipped=false, flashKnow=0, flashDunno=0;
-function renderFlashLevels(){
-  document.getElementById('flashLevelRow').innerHTML=[
-    {id:'hiragana',label:'🔤 히라가나'},
-    {id:'travel',label:'✈️ 여행회화'},
-    {id:'n5words',label:'📚 JLPT N5'},
-  ].map(function(l){
-    return '<button class="flash-lv-btn'+(l.id===flashLevel?' active':'')+'" onclick="setFlashLevel(\''+l.id+'\')">'+l.label+'</button>';
-  }).join('');
-}
-function shuffle(arr){
-  var a=arr.slice();
-  for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
-  return a;
-}
-function setFlashLevel(lv){
-  flashLevel=lv; flashIdx=0; flashFlipped=false; flashKnow=0; flashDunno=0;
-  flashDeck=shuffle(FLASH_SETS[lv]);
-  renderFlashLevels(); updateFlashScore(); showFlashCard();
-}
-function updateFlashScore(){
-  document.getElementById('flashKnow').textContent=flashKnow;
-  document.getElementById('flashDunno').textContent=flashDunno;
-  document.getElementById('flashLeft').textContent=Math.max(0,flashDeck.length-flashIdx);
-}
-function showFlashCard(){
-  updateFlashScore();
-  if(flashIdx>=flashDeck.length){
-    document.getElementById('flashFront').textContent='🎉';
-    document.getElementById('flashHintTxt').textContent='완료! ✅ '+flashKnow+' / ❌ '+flashDunno;
-    document.getElementById('flashBack').classList.remove('show');
-    document.getElementById('flashBtns').style.display='none';
-    document.getElementById('flashProgress').textContent='레벨을 다시 선택하면 처음부터 시작해요';
-    return;
-  }
-  var card=flashDeck[flashIdx];
-  document.getElementById('flashFront').textContent=card.front;
-  document.getElementById('flashHintTxt').textContent=card.hint+' · 눌러서 확인 🔊';
-  document.getElementById('flashBack').textContent=card.back;
-  document.getElementById('flashBack').classList.remove('show');
-  document.getElementById('flashBtns').style.display='none';
-  flashFlipped=false;
-  document.getElementById('flashProgress').textContent=(flashIdx+1)+' / '+flashDeck.length+' 번째 카드';
-}
-function flipCard(){
-  if(flashFlipped) return;
-  flashFlipped=true;
-  document.getElementById('flashBack').classList.add('show');
-  document.getElementById('flashBtns').style.display='flex';
-  document.getElementById('flashHintTxt').style.display='none';
-  speak(flashDeck[flashIdx].front);
-}
-function answerCard(know){
-  if(know) flashKnow++; else flashDunno++;
-  flashIdx++;
-  document.getElementById('flashHintTxt').style.display='block';
-  showFlashCard();
-}
- 
-// 문법 카드
-var GRAMMAR=[
-  {title:'~は ~です',desc:'~은/는 ~입니다 (기본 서술)',examples:[
-    {jp:'これはりんごです',rom:'kore wa ringo desu',krp:'코레 와 린고 데스',kr:'이것은 사과입니다'},
-    {jp:'わたしは学生です',rom:'watashi wa gakusei desu',krp:'와타시 와 각세이 데스',kr:'저는 학생입니다'},
-  ]},
-  {title:'~を ください',desc:'~을/를 주세요 (쇼핑·식당 필수)',examples:[
-    {jp:'みずをください',rom:'mizu wo kudasai',krp:'미즈 오 쿠다사이',kr:'물을 주세요'},
-    {jp:'これをください',rom:'kore wo kudasai',krp:'코레 오 쿠다사이',kr:'이것을 주세요'},
-  ]},
-  {title:'~はどこですか？',desc:'~은/는 어디예요? (길찾기 필수)',examples:[
-    {jp:'トイレはどこですか？',rom:'toire wa doko desu ka',krp:'토이레 와 도코 데스까',kr:'화장실이 어디예요?'},
-    {jp:'えきはどこですか？',rom:'eki wa doko desu ka',krp:'에키 와 도코 데스까',kr:'역이 어디예요?'},
-  ]},
-  {title:'~はいくらですか？',desc:'~은/는 얼마예요? (쇼핑 필수)',examples:[
-    {jp:'これはいくらですか？',rom:'kore wa ikura desu ka',krp:'코레 와 이쿠라 데스까',kr:'이것은 얼마예요?'},
-    {jp:'このかばんはいくらですか？',rom:'kono kaban wa ikura desu ka',krp:'코노 카반 와 이쿠라 데스까',kr:'이 가방은 얼마예요?'},
-  ]},
-  {title:'~ができますか？',desc:'~을/를 할 수 있나요? (확인할 때)',examples:[
-    {jp:'えいごができますか？',rom:'eigo ga dekimasu ka',krp:'에이고 가 데키마스까',kr:'영어를 할 수 있나요?'},
-    {jp:'カードができますか？',rom:'kaado ga dekimasu ka',krp:'카도 가 데키마스까',kr:'카드 결제 가능한가요?'},
-  ]},
-  {title:'~をおねがいします',desc:'~을/를 부탁드립니다 (정중한 요청)',examples:[
-    {jp:'チェックインをおねがいします',rom:'chekkuin wo onegai shimasu',krp:'체꾸인 오 오네가이 시마스',kr:'체크인 부탁드립니다'},
-    {jp:'おかいけいをおねがいします',rom:'okaikei wo onegai shimasu',krp:'오카이케이 오 오네가이 시마스',kr:'계산 부탁드립니다'},
-  ]},
-  {title:'~ていただけますか？',desc:'~해 주실 수 있으시겠어요? (최정중)',examples:[
-    {jp:'ゆっくり話していただけますか？',rom:'yukkuri hanashite itadakemasu ka',krp:'유쿠리 하나시테 이타다케마스까',kr:'천천히 말씀해 주실 수 있나요?'},
-    {jp:'もういちどいっていただけますか？',rom:'mou ichido itte itadakemasu ka',krp:'모우 이치도 잇테 이타다케마스까',kr:'한 번 더 말씀해 주실 수 있나요?'},
-  ]},
-];
-function renderGrammar(){
-  document.getElementById('grammarList').innerHTML=GRAMMAR.map(function(g,gi){
-    var exHtml=g.examples.map(function(ex){
-      return '<div class="grammar-ex">'
-        +'<div class="grammar-ex-jp"><span style="font-family:\'Noto Sans JP\',sans-serif">'+ex.jp+'</span>'
-        +'<span onclick="speak(\''+ex.jp+'\')" style="cursor:pointer;color:var(--pink2);font-size:16px">🔊</span></div>'
-        +'<div class="grammar-ex-rom">'+ex.rom+'</div>'
-        +'<div class="grammar-ex-kr" style="font-size:11px;color:var(--hint)">한국어 발음: '+ex.krp+'</div>'
-        +'<div class="grammar-ex-kr">→ '+ex.kr+'</div>'
-        +'</div>';
-    }).join('');
-    return '<div class="grammar-card" onclick="toggleGrammar('+gi+')">'
-      +'<div class="grammar-title">'+g.title+'</div>'
-      +'<div class="grammar-desc" style="font-size:12px;color:var(--sub)">'+g.desc+'</div>'
-      +'<div class="grammar-detail" id="gd-'+gi+'">'+exHtml+'</div>'
-      +'</div>';
-  }).join('');
-}
-function toggleGrammar(i){document.getElementById('gd-'+i).classList.toggle('show');}
- 
-// AI 학습
-var currentMode='translate';
-var MODE_PROMPTS={
-  translate:function(q){return '"'+q+'"를 일본어로 알려주세요.\n\n일본어:\n발음(로마자):\n한국어 발음:\n\n설명: (한국어)';},
-  write:function(q){return '"'+q+'"를 일본어로 쓰는 법을 가르쳐주세요. 한국어로.';},
-  hiragana:function(q){return '히라가나 질문: "'+q+'". 발음, 쓰는 법, 외우는 팁을 한국어로.';},
-  word:function(q){return '"'+q+'" 일본어 단어: 뜻, 발음(로마자+한국어), 예문 2개. 한국어로.';},
-  grammar:function(q){return '"'+q+'" 일본어 문법을 한국어로 쉽게 설명. 형태, 사용법, 예문 2개.';},
-};
-var MODE_PH={translate:"예: '감사합니다'를 일본어로?",write:"예: あ 쓰는 법 알려줘",hiragana:"예: 히라가나 외우는 팁",word:"예: 사쿠라의 뜻과 사용법",grammar:"예: ~て형 사용법"};
-function setMode(btn,mode){
-  currentMode=mode;
-  document.querySelectorAll('.mode-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  document.getElementById('learnInput').placeholder=MODE_PH[mode]||'';
-}
-async function doLearn(){
-  var q=document.getElementById('learnInput').value.trim(); if(!q) return;
-  setLoad('learnBtn','learnSpinner','learnBtnText','생각 중...',true);
-  document.getElementById('learnError').classList.remove('show');
-  document.getElementById('learnResult').classList.remove('show');
-  try{
-    var res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,
-        messages:[{role:'user',content:MODE_PROMPTS[currentMode](q)}]})});
-    var data=await res.json();
-    var el=document.getElementById('learnResult');
-    el.textContent=data.content.map(function(i){return i.text||''}).join('');
-    el.classList.add('show');
-  }catch(e){showErr('learnError','오류. 다시 시도해주세요.');}
-  setLoad('learnBtn','learnSpinner','learnBtnText','✨ 질문하기',false);
-}
- 
-// ── 체크리스트 ──────────────────────────────────────────────
-var DEFAULT_CHECKLIST=[
-  {section:'📋 서류 · 예약',items:['여권 유효기간 확인 (6개월 이상)','항공권 예약 확인','숙소 예약 확인','여행자 보험 가입']},
-  {section:'💳 금융 · 통신',items:['엔화 현금 환전','트래블월렛 / 트래블로그 카드 준비','일본 유심 / 포켓와이파이 예약','한국 카드사 해외 결제 한도 확인']},
-  {section:'📱 앱 · 준비',items:['구글맵 도쿄 오프라인 지도 다운로드','파파고 / 구글 번역 앱 설치','Suica 앱 설치 (아이폰 가능)','스카이스캐너로 귀국편 재확인']},
-  {section:'🎒 짐 준비',items:['편한 운동화 (하루 2만보 기준)','상비약 (감기약, 지사제 등)','비 대비 접이식 우산','보조배터리 (기내 반입용)','계절별 의류 준비']},
-  {section:'🗺️ 현지 준비',items:['숙소 주소 일본어로 저장','숙소 체크인 시간 확인','공항→숙소 이동 방법 파악','긴급 연락처 저장 (경찰110/구급119)']},
-];
-function loadChecklist(){try{var s=localStorage.getItem('jp_checklist_v2');return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}catch(e){return JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}}
-function saveChecklist(){try{localStorage.setItem('jp_checklist_v2',JSON.stringify(CHECKLIST));}catch(e){}}
-var CHECKLIST=loadChecklist();
-var checkState=JSON.parse(localStorage.getItem('jp_checks')||'{}');
-function saveCheckState(){try{localStorage.setItem('jp_checks',JSON.stringify(checkState));}catch(e){}}
-function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-function renderChecklist(){
-  var total=0,done=0,html='';
-  CHECKLIST.forEach(function(sec,si){
-    html+='<div class="check-section">'
-      +'<div class="check-section-header">'
-      +'<div class="check-section-title">'+esc(sec.section)+'</div>'
-      +'<button class="check-section-del" onclick="deleteSection('+si+')">카테고리 삭제</button>'
-      +'</div>'
-      +'<div class="check-add-row">'
-      +'<input class="check-add-input" type="text" id="ci-add-'+si+'" placeholder="항목 추가...">'
-      +'<button class="check-add-btn" onclick="addItem('+si+')">+</button>'
-      +'</div>';
-    sec.items.forEach(function(item,ii){
-      var key=si+'-'+ii,isDone=!!checkState[key];
-      total++; if(isDone) done++;
-      html+='<div class="check-item'+(isDone?' done':'')+'">'
-        +'<div class="check-box" onclick="toggleCheck('+si+','+ii+')"><span class="check-icon">&#10003;</span></div>'
-        +'<div class="check-text" onclick="toggleCheck('+si+','+ii+')">'+esc(item)+'</div>'
-        +'<button class="check-del" onclick="deleteItem('+si+','+ii+')">&#10005;</button>'
-        +'</div>';
-    });
-    html+='</div>';
-  });
-  if(!CHECKLIST.length) html='<div style="text-align:center;padding:32px 0;color:var(--hint);font-size:13px">없어요</div>';
-  document.getElementById('checklistContent').innerHTML=html;
-  CHECKLIST.forEach(function(sec,si){
-    var el=document.getElementById('ci-add-'+si);
-    if(el){
-      (function(idx){
-        el.addEventListener('keydown',function(e){if(e.key==='Enter')addItem(idx);});
-      })(si);
-    }
-  });
-  document.getElementById('progressCount').textContent=done+' / '+total;
-  document.getElementById('progressBar').style.width=(total?Math.round(done/total*100):0)+'%';
-}
- 
-function toggleCheck(si,ii){var key=si+'-'+ii;checkState[key]=!checkState[key];saveCheckState();renderChecklist();}
-function addItem(si){
-  var input=document.getElementById('ci-add-'+si);
-  var val=input.value.trim(); if(!val) return;
-  CHECKLIST[si].items.push(val); saveChecklist(); input.value='';
-  renderChecklist(); showToast('항목이 추가됐어요 ✓');
-}
-function deleteItem(si,ii){
-  CHECKLIST[si].items.splice(ii,1);
-  var newState={};
-  Object.keys(checkState).forEach(function(k){
-    var p=k.split('-'),ks=parseInt(p[0]),ki=parseInt(p[1]);
-    if(ks===si){if(ki<ii)newState[k]=checkState[k];else if(ki>ii)newState[ks+'-'+(ki-1)]=checkState[k];}
-    else newState[k]=checkState[k];
-  });
-  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist();
-}
-function deleteSection(si){
-  if(!confirm('"'+CHECKLIST[si].section+'" 카테고리를 삭제할까요?')) return;
-  CHECKLIST.splice(si,1);
-  var newState={};
-  Object.keys(checkState).forEach(function(k){
-    var p=k.split('-'),ks=parseInt(p[0]),ki=p[1];
-    if(ks<si)newState[k]=checkState[k];
-    else if(ks>si)newState[(ks-1)+'-'+ki]=checkState[k];
-  });
-  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist(); showToast('카테고리가 삭제됐어요');
-}
-function addSection(){
-  var input=document.getElementById('newSectionInput');
-  var val=input.value.trim(); if(!val) return;
-  CHECKLIST.push({section:val,items:[]}); saveChecklist(); input.value='';
-  renderChecklist(); showToast('카테고리가 추가됐어요 ✓');
-}
-function resetAllChecks(){
-  if(!confirm('체크 표시를 모두 초기화할까요?\n(항목은 유지됩니다)')) return;
-  checkState={}; saveCheckState(); renderChecklist(); showToast('체크가 초기화됐어요');
-}
- 
-// ── 유틸 ──────────────────────────────────────────────
-// ── 음성 엔진 ──────────────────────────────────────────────
-var _jaVoice=null;
-function _loadVoices(){
-  var voices=window.speechSynthesis.getVoices();
-  _jaVoice=voices.find(function(v){return v.lang==='ja-JP'&&v.localService;})
-    ||voices.find(function(v){return v.lang==='ja-JP';})
-    ||voices.find(function(v){return v.lang==='ja';})
-    ||voices.find(function(v){return v.lang.startsWith('ja');})
-    ||null;
-}
-if(window.speechSynthesis){
-  _loadVoices();
-  window.speechSynthesis.onvoiceschanged=function(){_loadVoices();};
-}
-function speak(text){
-  if(!text) return;
-  if(typeof text!=='string') text=decodeURIComponent(String(text));
-  window.speechSynthesis.cancel();
-  function _doSpeak(){
-    var u=new SpeechSynthesisUtterance(text);
-    u.lang='ja-JP';
-    u.rate=0.82;
-    u.pitch=1.0;
-    if(!_jaVoice) _loadVoices();
-    if(_jaVoice) u.voice=_jaVoice;
-    window.speechSynthesis.speak(u);
-  }
-  // 음성 목록이 아직 안 로드됐으면 잠깐 기다렸다가 실행
-  if(_jaVoice){
-    _doSpeak();
-  } else {
-    var voices=window.speechSynthesis.getVoices();
-    if(voices.length>0){_loadVoices();_doSpeak();}
-    else{setTimeout(function(){_loadVoices();_doSpeak();},300);}
-  }
-}
-// 음성 목록 미리 로드
-if(window.speechSynthesis) window.speechSynthesis.getVoices();
-window.speechSynthesis && window.speechSynthesis.addEventListener && window.speechSynthesis.addEventListener('voiceschanged',function(){window.speechSynthesis.getVoices();});
-function setLoad(btnId,spId,txtId,label,on){
-  document.getElementById(btnId).disabled=on;
-  document.getElementById(spId).style.display=on?'block':'none';
-  document.getElementById(txtId).textContent=label;
-}
-function showErr(id,msg){var e=document.getElementById(id);e.textContent=msg;e.classList.add('show');}
-function showToast(msg){
-  var t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
-  setTimeout(function(){t.classList.remove('show')},2200);
-}
-document.getElementById('inputText').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doTranslate();}});
-document.getElementById('learnInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doLearn();}});
- 
-// ── 리스닝 퀴즈 ──────────────────────────────────────────────
-var LISTENING_SETS = {
-  beginner: [
-    {jp:'ありがとう',mean:'감사합니다',rom:'arigatou',choices:['감사합니다','실례합니다','맛있다','주세요']},
-    {jp:'すみません',mean:'실례합니다',rom:'sumimasen',choices:['감사합니다','실례합니다','어디예요?','얼마예요?']},
-    {jp:'おいしい',mean:'맛있다',rom:'oishii',choices:['맛있다','귀엽다','비싸다','즐겁다']},
-    {jp:'いくら？',mean:'얼마예요?',rom:'ikura',choices:['어디예요?','얼마예요?','주세요','감사합니다']},
-    {jp:'どこ？',mean:'어디예요?',rom:'doko',choices:['어디예요?','얼마예요?','주세요','화장실']},
-    {jp:'ください',mean:'주세요',rom:'kudasai',choices:['주세요','감사합니다','실례합니다','맛있다']},
-    {jp:'トイレ',mean:'화장실',rom:'toire',choices:['화장실','역','맛있다','주세요']},
-    {jp:'おかいけい',mean:'계산서',rom:'okaikei',choices:['계산서','메뉴','화장실','감사합니다']},
-    {jp:'かわいい',mean:'귀엽다',rom:'kawaii',choices:['귀엽다','맛있다','비싸다','즐겁다']},
-    {jp:'えき',mean:'역',rom:'eki',choices:['역','화장실','공항','호텔']},
-  ],
-  travel: [
-    {jp:'チェックインをお願いします',mean:'체크인 부탁드립니다',rom:'chekkuin wo onegai shimasu',choices:['체크인 부탁드립니다','체크아웃이 언제예요?','짐 맡아주세요','와이파이 비밀번호 알려주세요']},
-    {jp:'メニューをください',mean:'메뉴 주세요',rom:'menyu wo kudasai',choices:['메뉴 주세요','물 주세요','계산해주세요','추천이 뭔가요?']},
-    {jp:'免税できますか？',mean:'면세 되나요?',rom:'menzei dekimasu ka',choices:['면세 되나요?','카드 되나요?','입어볼 수 있나요?','다른 색상 있나요?']},
-    {jp:'お会計をお願いします',mean:'계산 부탁드려요',rom:'okaikei wo onegai shimasu',choices:['계산 부탁드려요','메뉴 주세요','물 주세요','추천이 뭔가요?']},
-    {jp:'カードで払えますか？',mean:'카드 결제 되나요?',rom:'kaado de haraemasu ka',choices:['카드 결제 되나요?','면세 되나요?','영수증 주세요','봉투 필요 없어요']},
-    {jp:'おすすめは何ですか？',mean:'추천 메뉴가 뭔가요?',rom:'osusume wa nan desu ka',choices:['추천 메뉴가 뭔가요?','계산 부탁드려요','물 주세요','메뉴 주세요']},
-    {jp:'荷物を預けられますか？',mean:'짐 맡아주실 수 있나요?',rom:'nimotsu wo azukeraremasu ka',choices:['짐 맡아주실 수 있나요?','체크인 부탁드립니다','와이파이 비밀번호 알려주세요','수건 추가로 주세요']},
-    {jp:'試着できますか？',mean:'입어볼 수 있나요?',rom:'shichaku dekimasu ka',choices:['입어볼 수 있나요?','면세 되나요?','다른 색상 있나요?','카드 되나요?']},
-  ],
-  advanced: [
-    {jp:'ここに止めてください',mean:'여기서 세워주세요',rom:'koko ni tomete kudasai',choices:['여기서 세워주세요','다음 역이 어디예요?','환승은 어디서 해요?','얼마나 걸려요?']},
-    {jp:'乗り換えはどこですか？',mean:'환승은 어디서 해요?',rom:'norikae wa doko desu ka',choices:['환승은 어디서 해요?','여기서 세워주세요','다음 역이 어디예요?','몇 시에 출발해요?']},
-    {jp:'アレルギーがあります',mean:'알레르기가 있어요',rom:'arerugii ga arimasu',choices:['알레르기가 있어요','안 매운 것 있나요?','맛있어요','추천이 뭔가요?']},
-    {jp:'もう一度お願いします',mean:'다시 한번 부탁드려요',rom:'mou ichido onegai shimasu',choices:['다시 한번 부탁드려요','천천히 말해주세요','이해했어요','잘 모르겠어요']},
-    {jp:'わかりません',mean:'모르겠어요',rom:'wakarimasen',choices:['모르겠어요','알겠어요','감사합니다','죄송합니다']},
-    {jp:'ゆっくり話してください',mean:'천천히 말해주세요',rom:'yukkuri hanashite kudasai',choices:['천천히 말해주세요','다시 한번 부탁드려요','영어 할 수 있나요?','모르겠어요']},
-    {jp:'禁煙席をお願いします',mean:'금연석으로 부탁드려요',rom:'kin-en seki wo onegai shimasu',choices:['금연석으로 부탁드려요','1명이에요','창가 자리로 주세요','메뉴 주세요']},
-  ],
-};
-var listeningLevel='beginner', listeningDeck=[], listeningIdx=0, listeningScore=0, listeningAnswered=false;
- 
-function renderListeningLevels(){
-  var levels=[{id:'beginner',label:'🌱 기초'},{id:'travel',label:'✈️ 여행'},{id:'advanced',label:'📚 고급'}];
-  var wrap=document.getElementById('listeningLevelRow');
-  wrap.innerHTML='';
-  levels.forEach(function(l){
-    var btn=document.createElement('button');
-    var active=l.id===listeningLevel;
-    btn.textContent=l.label;
-    btn.style.cssText='padding:6px 14px;border-radius:20px;border:1.5px solid '+(active?'var(--pink)':'var(--bor)')+';background:'+(active?'linear-gradient(135deg,var(--pink),#f06292)':'var(--sur)')+';color:'+(active?'#fff':'var(--sub)')+';font-size:11.5px;cursor:pointer;font-family:inherit;margin-right:2px';
-    btn.onclick=(function(id){return function(){setListeningLevel(id);};})(l.id);
-    wrap.appendChild(btn);
-  });
-}
-function setListeningLevel(lv){
-  listeningLevel=lv; listeningIdx=0; listeningScore=0; listeningAnswered=false;
-  listeningDeck=shuffle(LISTENING_SETS[lv]);
-  renderListeningLevels(); showListeningCard();
-}
-function showListeningCard(){
-  if(listeningIdx>=listeningDeck.length){
-    document.getElementById('listeningCard').innerHTML='<div style="font-size:36px;margin-bottom:8px">🎉</div><div style="font-size:16px;font-weight:700;color:var(--txt)">완료!</div><div style="font-size:13px;color:var(--sub);margin-top:6px">'+listeningScore+' / '+listeningDeck.length+' 정답</div>';
-    document.getElementById('listenBtn').style.display='none';
-    document.getElementById('listeningChoices').innerHTML='';
-    document.getElementById('listeningNextBtn').style.display='none';
-    document.getElementById('listeningProgress').textContent='레벨을 다시 선택하면 처음부터 시작해요';
-    document.getElementById('listeningResult').style.display='none';
-    return;
-  }
-  var q=listeningDeck[listeningIdx];
-  listeningAnswered=false;
-  document.getElementById('listeningProgress').textContent=(listeningIdx+1)+' / '+listeningDeck.length+' · ✅ '+listeningScore;
- 
-  var card=document.getElementById('listeningCard');
-  card.innerHTML='';
-  var hint=document.createElement('div');
-  hint.style.cssText='font-size:13px;color:var(--hint);margin-bottom:10px';
-  hint.textContent='🔊 듣고 뜻을 맞춰보세요';
-  card.appendChild(hint);
- 
-  var listenCardBtn=document.createElement('button');
-  listenCardBtn.textContent='🔊 듣기';
-  listenCardBtn.style.cssText='padding:14px 28px;background:linear-gradient(135deg,#42a5f5,#26c6da);color:#fff;border:none;border-radius:50px;font-size:22px;cursor:pointer;box-shadow:0 4px 14px rgba(66,165,245,.3)';
-  listenCardBtn.onclick=playListening;
-  card.appendChild(listenCardBtn);
- 
-  var romDiv=document.createElement('div');
-  romDiv.style.cssText='font-size:11px;color:var(--hint);margin-top:8px';
-  romDiv.textContent=q.rom;
-  card.appendChild(romDiv);
- 
-  document.getElementById('listenBtn').style.display='flex';
-  document.getElementById('listeningResult').style.display='none';
-  document.getElementById('listeningNextBtn').style.display='none';
- 
-  var choices=shuffle(q.choices);
-  var choiceWrap=document.getElementById('listeningChoices');
-  choiceWrap.innerHTML='';
-  choices.forEach(function(c){
-    var btn=document.createElement('button');
-    btn.textContent=c;
-    btn.style.cssText='padding:12px 8px;background:var(--sur);border:1.5px solid var(--bor);border-radius:var(--rs);font-size:13px;font-family:inherit;color:var(--txt);cursor:pointer;text-align:center;line-height:1.4;box-shadow:var(--sh)';
-    btn.onclick=(function(ans){return function(){answerListening(ans);};})(c);
-    choiceWrap.appendChild(btn);
-  });
-  setTimeout(function(){playListening();},500);
-}
- 
-function playListening(){
-  if(listeningIdx>=listeningDeck.length) return;
-  speak(listeningDeck[listeningIdx].jp);
-}
-function answerListening(answer){
-  if(listeningAnswered) return;
-  listeningAnswered=true;
-  var correct=listeningDeck[listeningIdx].mean;
-  var isRight=answer===correct;
-  if(isRight) listeningScore++;
-  var res=document.getElementById('listeningResult');
-  res.style.display='block';
-  res.style.background=isRight?'#e8f5e9':'#ffebee';
-  res.style.color=isRight?'#2e7d32':'#c62828';
-  res.textContent=isRight?'✅ 정답! — '+correct:'❌ 오답 — 정답: '+correct;
-  var btns=document.getElementById('listeningChoices').querySelectorAll('button');
-  btns.forEach(function(btn){
-    btn.style.opacity='0.6'; btn.style.cursor='default';
-    if(btn.textContent===correct) btn.style.background='#e8f5e9';
-    if(btn.textContent===answer&&!isRight) btn.style.background='#ffebee';
-  });
-  document.getElementById('listeningNextBtn').style.display='block';
-}
-function nextListening(){
-  listeningIdx++;
-  showListeningCard();
-}
- 
 // ── 마이크 번역 ──────────────────────────────────────────────
 var micRecognition=null;
 function startMic(){
@@ -1852,7 +979,7 @@ function resetMicBtn(){
   if(btn){btn.style.background='var(--pink4)';btn.style.borderColor='var(--bor2)';btn.textContent='🎙️ 말해서 입력하기';}
   if(status) status.style.display='none';
 }
- 
+
 // ── 유틸 ──────────────────────────────────────────────
 function speak(text){
   if(typeof text!=='string') text=decodeURIComponent(text);
@@ -1881,8 +1008,7 @@ function showToast(msg){
 }
 document.getElementById('inputText').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doTranslate();}});
 document.getElementById('learnInput').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();doLearn();}});
- 
-// ── 여행팁 ──────────────────────────────────────────────
+
 var TIP_CATS=[
   {id:'greet',   label:'🌅 인사'},
   {id:'toilet',  label:'🚽 화장실'},
@@ -2095,23 +1221,105 @@ function renderTipContent(){
     html+='</ul>';
   }
   html+='</div>';
- 
+
   // innerHTML 안에 <b> 태그가 있어서 DOM 방식으로 처리
   var wrap=document.getElementById('tipContent');
   wrap.innerHTML=html;
 }
- 
+
 // ── 초기화 ──────────────────────────────────────────────
-renderCatTabs(); renderPhrases();
+renderPhraseCatTabs(); renderPhraseItems();
 renderTipCatTabs(); renderTipContent();
-renderScenes(); resetChat();
-renderFavs(); renderMemos();
-loadDday();
+renderQuickAmounts();
 initApp();
 renderNavModes(); renderStationList();
 renderListeningLevels(); setListeningLevel('beginner');
 renderKanaTable(); renderGrammar();
 renderFlashLevels(); setFlashLevel('travel');
+// ── 체크리스트 ──────────────────────────────────────────────
+var DEFAULT_CHECKLIST=[
+  {section:'📋 서류 · 예약',items:['여권 유효기간 확인 (6개월 이상)','항공권 예약 확인','숙소 예약 확인','여행자 보험 가입']},
+  {section:'💳 금융 · 통신',items:['엔화 현금 환전','트래블월렛 / 트래블로그 카드 준비','일본 유심 / 포켓와이파이 예약','한국 카드사 해외 결제 한도 확인']},
+  {section:'📱 앱 · 준비',items:['구글맵 도쿄 오프라인 지도 다운로드','파파고 / 구글 번역 앱 설치','Suica 앱 설치 (아이폰 가능)','스카이스캐너로 귀국편 재확인']},
+  {section:'🎒 짐 준비',items:['편한 운동화 (하루 2만보 기준)','상비약 (감기약, 지사제 등)','비 대비 접이식 우산','보조배터리 (기내 반입용)','계절별 의류 준비']},
+  {section:'🗺️ 현지 준비',items:['숙소 주소 일본어로 저장','숙소 체크인 시간 확인','공항→숙소 이동 방법 파악','긴급 연락처 저장 (경찰110/구급119)']},
+];
+function loadChecklist(){try{var s=sGet('jp_checklist_v2');return s?JSON.parse(s):JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}catch(e){return JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));}}
+function saveChecklist(){try{sSet('jp_checklist_v2',JSON.stringify(CHECKLIST));}catch(e){}}
+var CHECKLIST=loadChecklist();
+var checkState=JSON.parse(sGet('jp_checks')||'{}');
+function saveCheckState(){try{sSet('jp_checks',JSON.stringify(checkState));}catch(e){}}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function renderChecklist(){
+  var total=0,done=0,html='';
+  CHECKLIST.forEach(function(sec,si){
+    html+='<div class="check-section">'
+      +'<div class="check-section-header">'
+      +'<div class="check-section-title">'+esc(sec.section)+'</div>'
+      +'<button class="check-section-del" onclick="deleteSection('+si+')">카테고리 삭제</button>'
+      +'</div>'
+      +'<div class="check-add-row">'
+      +'<input class="check-add-input" type="text" id="ci-add-'+si+'" placeholder="항목 추가...">'
+      +'<button class="check-add-btn" onclick="addItem('+si+')">+</button>'
+      +'</div>';
+    sec.items.forEach(function(item,ii){
+      var key=si+'-'+ii,isDone=!!checkState[key];
+      total++; if(isDone) done++;
+      html+='<div class="check-item'+(isDone?' done':'')+'">'
+        +'<div class="check-box" onclick="toggleCheck('+si+','+ii+')"><span class="check-icon">&#10003;</span></div>'
+        +'<div class="check-text" onclick="toggleCheck('+si+','+ii+')">'+esc(item)+'</div>'
+        +'<button class="check-del" onclick="deleteItem('+si+','+ii+')">&#10005;</button>'
+        +'</div>';
+    });
+    html+='</div>';
+  });
+  if(!CHECKLIST.length) html='<div style="text-align:center;padding:32px 0;color:var(--hint);font-size:13px">위에서 새 카테고리를 추가해보세요!</div>';
+  document.getElementById('checklistContent').innerHTML=html;
+  CHECKLIST.forEach(function(sec,si){
+    var el=document.getElementById('ci-add-'+si);
+    if(el){(function(idx){el.addEventListener('keydown',function(e){if(e.key==='Enter')addItem(idx);});})(si);}
+  });
+  document.getElementById('progressCount').textContent=done+' / '+total;
+  document.getElementById('progressBar').style.width=(total?Math.round(done/total*100):0)+'%';
+}
+function toggleCheck(si,ii){var key=si+'-'+ii;checkState[key]=!checkState[key];saveCheckState();renderChecklist();}
+function addItem(si){
+  var input=document.getElementById('ci-add-'+si);
+  var val=input.value.trim(); if(!val) return;
+  CHECKLIST[si].items.push(val); saveChecklist(); input.value='';
+  renderChecklist(); showToast('항목이 추가됐어요 ✓');
+}
+function deleteItem(si,ii){
+  CHECKLIST[si].items.splice(ii,1);
+  var newState={};
+  Object.keys(checkState).forEach(function(k){
+    var p=k.split('-'),ks=parseInt(p[0]),ki=parseInt(p[1]);
+    if(ks===si){if(ki<ii)newState[k]=checkState[k];else if(ki>ii)newState[ks+'-'+(ki-1)]=checkState[k];}
+    else newState[k]=checkState[k];
+  });
+  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist();
+}
+function deleteSection(si){
+  if(!confirm('"'+CHECKLIST[si].section+'" 카테고리를 삭제할까요?')) return;
+  CHECKLIST.splice(si,1);
+  var newState={};
+  Object.keys(checkState).forEach(function(k){
+    var p=k.split('-'),ks=parseInt(p[0]),ki=p[1];
+    if(ks<si)newState[k]=checkState[k];else if(ks>si)newState[(ks-1)+'-'+ki]=checkState[k];
+  });
+  checkState=newState; saveChecklist(); saveCheckState(); renderChecklist(); showToast('카테고리가 삭제됐어요');
+}
+function addSection(){
+  var input=document.getElementById('newSectionInput');
+  var val=input.value.trim(); if(!val) return;
+  CHECKLIST.push({section:val,items:[]}); saveChecklist(); input.value='';
+  renderChecklist(); showToast('카테고리가 추가됐어요 ✓');
+}
+function resetAllChecks(){
+  if(!confirm('체크 표시를 모두 초기화할까요?')) return;
+  checkState={}; saveCheckState(); renderChecklist(); showToast('체크가 초기화됐어요');
+}
+
 renderChecklist(); renderQuickAmounts();
 initTodayWord(); fetchRate(); fetchWeather();
 </script>
